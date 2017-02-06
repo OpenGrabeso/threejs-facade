@@ -381,22 +381,40 @@ class Float32Attribute(data: js.Any, itemSize: Double) extends BufferAttribute(d
 class Float64Attribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
 
 @js.native
+class Group(var start: Double, var count: Double, var materialIndex: Double) extends js.Object
+
+@js.native
 @JSName("THREE.BufferGeometry")
-class BufferGeometry extends Geometry {
+class BufferGeometry extends js.Object with EventDispatcher {
   var attributes: js.Array[BufferAttribute] = js.native
-  var drawcalls: js.Any = js.native
-  var offsets: js.Any = js.native
-  def addAttribute(name: String, attribute: BufferAttribute): js.Dynamic = js.native
-  def addAttribute(name: String, array: js.Any, itemSize: Double): js.Dynamic = js.native
-  def getAttribute(name: String): js.Dynamic = js.native
-  def addDrawCall(start: Double, count: Double, index: Double): Unit = js.native
-  def fromGeometry(geometry: Geometry, settings: js.Any = js.native): BufferGeometry = js.native
+  var groups: js.Array[Group] = js.native
+  def getIndex(): BufferAttribute = js.native
+  def setIndex(index: BufferAttribute): Unit = js.native
+  def addAttribute(name: String, attribute: BufferAttribute): Unit = js.native
+  def getAttribute(name: String): BufferAttribute = js.native
+  def removeAttribute(name: String): Unit = js.native
+  def addGroup(start: Double, count: Double, materialIndex: Double): Unit = js.native
+  def clearGroups(): Unit = js.native
+  def setDrawRange(start: Double, count: Double): Unit = js.native
+  def applyMatrix(matrix: Matrix4): BufferGeometry = js.native
+  def rotateX(angle: Double): BufferGeometry = js.native
+  def rotateY(angle: Double): BufferGeometry = js.native
+  def rotateZ(angle: Double): BufferGeometry = js.native
+  def translate(x: Double, y: Double, z: Double): BufferGeometry = js.native
+  def scale(x: Double, y: Double, z: Double): BufferGeometry = js.native
+  def lookAt(x: Double, y: Double, z: Double): BufferGeometry = js.native
+  def center(): Vector3 = js.native
+  def setFromObject(obj: Object3D): BufferGeometry = js.native
+  def updateFromObject(obj: Object3D): BufferGeometry = js.native
+  def fromGeometry(geometry: Geometry): BufferGeometry = js.native
+  def computeBoundingBox(): Unit = js.native
+  def computeBoundingSphere(): Unit = js.native
   def computeVertexNormals(): Unit = js.native
-  def computeOffsets(indexBufferSize: Double): Unit = js.native
-  def merge(): Unit = js.native
+  def merge(geometry: BufferGeometry, offset: Double): BufferGeometry = js.native
   def normalizeNormals(): Unit = js.native
-  def reorderBuffers(indexBuffer: Double, indexMap: js.Array[Double], vertexCount: Double): Unit = js.native
+  def toNonIndexed(): BufferGeometry = js.native
   override def clone(): BufferGeometry = js.native
+  def copy(geometry: BufferGeometry): BufferGeometry = js.native
 }
 
 @js.native

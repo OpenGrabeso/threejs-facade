@@ -334,7 +334,7 @@ class PerspectiveCamera(var fov: Double = js.native, var aspect: Double = js.nat
 @js.native
 @JSName("THREE.BufferAttribute")
 class BufferAttribute(var array: js.Any, var itemSize: Double) extends js.Object {
-  var length: Double = js.native
+  var count: Int = js.native
   def set(value: Double): BufferAttribute = js.native
   def setX(index: Double, x: Double): BufferAttribute = js.native
   def setY(index: Double, y: Double): BufferAttribute = js.native

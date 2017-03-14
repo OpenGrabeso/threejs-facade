@@ -381,13 +381,13 @@ class Float32Attribute(data: js.Any, itemSize: Double) extends BufferAttribute(d
 class Float64Attribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
 
 @js.native
-class Group(var start: Double, var count: Double, var materialIndex: Double) extends js.Object
+class GeometryGroup(var start: Double, var count: Double, var materialIndex: Double) extends js.Object
 
 @js.native
 @JSName("THREE.BufferGeometry")
 class BufferGeometry extends js.Object with EventDispatcher {
   var attributes: js.Array[BufferAttribute] = js.native
-  var groups: js.Array[Group] = js.native
+  var groups: js.Array[GeometryGroup] = js.native
   def getIndex(): BufferAttribute = js.native
   def setIndex(index: BufferAttribute): Unit = js.native
   def addAttribute(name: String, attribute: BufferAttribute): Unit = js.native
@@ -538,8 +538,6 @@ class Object3D extends js.Object with EventDispatcher {
   var rotation: Euler = js.native
   var quaternion: Quaternion = js.native
   var scale: Vector3 = js.native
-  var renderDepth: Double = js.native
-  var rotationAutoUpdate: Boolean = js.native
   var matrix: Matrix4 = js.native
   var matrixWorld: Matrix4 = js.native
   var matrixAutoUpdate: Boolean = js.native
@@ -572,8 +570,13 @@ class Object3D extends js.Object with EventDispatcher {
   def raycast(raycaster: Raycaster, intersects: js.Any): Unit = js.native
   def traverse(callback: js.Function1[Object3D, Any]): Unit = js.native
   def getObjectById(id: String, recursive: Boolean): Object3D = js.native
-  def getObjectByName(name: String, recursive: Boolean = js.native): Object3D = js.native
+  def getObjectByName(name: String): Object3D = js.native
   def getChildByName(name: String, recursive: Boolean = js.native): Object3D = js.native
+  def getWorldPosition: Vector3 = js.native
+  def getWorldQuaternion: Quaternion = js.native
+  def getWorldRotation: Euler = js.native
+  def getWorldScale: Vector3 = js.native
+  def getWorldDirection: Vector3 = js.native
   def updateMatrix(): Unit = js.native
   def updateMatrixWorld(force: Boolean): Unit = js.native
   def updateMatrixWorld(): Unit = js.native
@@ -585,6 +588,10 @@ class Object3D extends js.Object with EventDispatcher {
 object Object3D extends js.Object {
   var DefaultUp: Vector3 = js.native
 }
+
+@js.native
+@JSName("THREE.Group")
+class Group extends Object3D
 
 @js.native
 trait Intersection extends js.Object {
@@ -1991,7 +1998,7 @@ class LOD extends Object3D {
 
 @js.native
 @JSName("THREE.Mesh")
-class Mesh(var geometry: Geometry = js.native, var material: Material = js.native) extends Object3D {
+class Mesh(var geometry: js.Any = js.native, var material: Material = js.native) extends Object3D {
   def updateMorphTargets(): Unit = js.native
   def getMorphTargetIndexByName(name: String): Double = js.native
   override def raycast(raycaster: Raycaster, intersects: js.Any): Unit = js.native

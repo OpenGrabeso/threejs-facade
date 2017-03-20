@@ -388,6 +388,8 @@ class GeometryGroup(var start: Double, var count: Double, var materialIndex: Dou
 class BufferGeometry extends js.Object with EventDispatcher {
   var attributes: js.Array[BufferAttribute] = js.native
   var groups: js.Array[GeometryGroup] = js.native
+  var boundingBox: BoundingBox3D = js.native
+  var boundingSphere: BoundingSphere = js.native
   def getIndex(): BufferAttribute = js.native
   def setIndex(index: BufferAttribute): Unit = js.native
   def addAttribute(name: String, attribute: BufferAttribute): Unit = js.native

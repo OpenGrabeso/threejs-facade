@@ -2004,7 +2004,7 @@ class Mesh(var geometry: js.Any = js.native, var material: Material = js.native)
   def updateMorphTargets(): Unit = js.native
   def getMorphTargetIndexByName(name: String): Double = js.native
   override def raycast(raycaster: Raycaster, intersects: js.Any): Unit = js.native
-  def clone(`object`: Mesh): Mesh = js.native
+  override def clone(): Mesh = js.native
 }
 
 @js.native
@@ -2028,7 +2028,7 @@ class MorphAnimMesh(geometry: Geometry = js.native, material: MeshBasicMaterial 
   def playAnimation(label: String, fps: Double): Unit = js.native
   def updateAnimation(delta: Double): Unit = js.native
   def interpolateTargets(a: Double, b: Double, t: Double): Unit = js.native
-  def clone(`object`: MorphAnimMesh): MorphAnimMesh = js.native
+  override def clone(): MorphAnimMesh = js.native
 }
 
 @js.native

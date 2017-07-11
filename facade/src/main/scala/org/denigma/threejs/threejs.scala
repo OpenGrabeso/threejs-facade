@@ -536,7 +536,7 @@ class Object3D extends js.Object with EventDispatcher {
   var parent: Object3D = js.native
   var children: js.Array[Object3D] = js.native
   var up: Vector3 = js.native
-  var position: Vector3 = js.native
+  val position: Vector3 = js.native
   var rotation: Euler = js.native
   var quaternion: Quaternion = js.native
   var scale: Vector3 = js.native

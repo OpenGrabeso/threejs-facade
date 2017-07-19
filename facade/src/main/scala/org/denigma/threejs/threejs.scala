@@ -574,11 +574,11 @@ class Object3D extends js.Object with EventDispatcher {
   def getObjectById(id: String, recursive: Boolean): Object3D = js.native
   def getObjectByName(name: String): Object3D = js.native
   def getChildByName(name: String, recursive: Boolean = js.native): Object3D = js.native
-  def getWorldPosition: Vector3 = js.native
-  def getWorldQuaternion: Quaternion = js.native
-  def getWorldRotation: Euler = js.native
-  def getWorldScale: Vector3 = js.native
-  def getWorldDirection: Vector3 = js.native
+  def getWorldPosition(): Vector3 = js.native
+  def getWorldQuaternion(): Quaternion = js.native
+  def getWorldRotation(): Euler = js.native
+  def getWorldScale(): Vector3 = js.native
+  def getWorldDirection(): Vector3 = js.native
   def updateMatrix(): Unit = js.native
   def updateMatrixWorld(force: Boolean): Unit = js.native
   def updateMatrixWorld(): Unit = js.native

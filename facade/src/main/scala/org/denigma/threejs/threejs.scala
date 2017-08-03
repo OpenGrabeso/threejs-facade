@@ -1988,9 +1988,12 @@ object LineType extends js.Object {
 }
 
 @js.native
+class LODLevel(var distance: Double, var `object`: Object3D) extends js.Object
+
+@js.native
 @JSName("THREE.LOD")
 class LOD extends Object3D {
-  var levels: js.Array[js.Any] = js.native
+  var levels: js.Array[LODLevel] = js.native
   def addLevel(`object`: Object3D, distance: Double = js.native): Unit = js.native
   def getObjectForDistance(distance: Double): Object3D = js.native
   override def raycast(raycaster: Raycaster, intersects: js.Any): Unit = js.native

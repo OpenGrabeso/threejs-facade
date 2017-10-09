@@ -550,6 +550,8 @@ class Object3D extends js.Object with EventDispatcher {
   var frustumCulled: Boolean = js.native
   var userData: js.Any = js.native
   var eulerOrder: String = js.native
+  var onBeforeRender: js.Function6[Renderer, Scene, Camera, Object3D, Material, Group, Unit] = js.native
+  var onAfterRender: js.Function6[Renderer, Scene, Camera, Object3D, Material, Group, Unit] = js.native
   def applyMatrix(matrix: Matrix4): Unit = js.native
   def setRotationFromAxisAngle(axis: Vector3, angle: Double): Unit = js.native
   def setRotationFromEuler(euler: Euler): Unit = js.native

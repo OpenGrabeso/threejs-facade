@@ -7,7 +7,7 @@ object Versions extends WebJarsVersions with ScalaJSVersions with SharedVersions
 
 trait ScalaJSVersions {
 
-    val threejsFacade =  "0.0.77-0.1.8-local"
+    val threejsFacade =  "0.0.82-0.1.8-local"
 
 	val jqueryFacade = "1.0"
 
@@ -42,7 +42,7 @@ trait WebJarsVersions{
 
 	val semanticUI = "2.2.7"
 
-	val threeJs = "r77"
+	val threeJs = "r82"
 
 	val codemirror = "5.22.0"
 }

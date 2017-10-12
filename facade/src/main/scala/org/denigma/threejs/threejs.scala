@@ -301,7 +301,8 @@ class Camera extends Object3D {
   var matrixWorldInverse: Matrix4 = js.native
   var projectionMatrix: Matrix4 = js.native
   override def lookAt(vector: Vector3): Unit = js.native
-  def clone(camera: Camera): Camera = js.native
+  def copy(camera: Camera): Camera = js.native
+  override def clone(): Camera = js.native
 }
 
 @js.native
@@ -319,6 +320,7 @@ class OrthographicCamera(
 ) extends Camera {
   var zoom: Double = js.native
   def updateProjectionMatrix(): Unit = js.native
+  def copy(source: OrthographicCamera): OrthographicCamera = js.native
   override def clone(): OrthographicCamera = js.native
 }
 
@@ -328,6 +330,7 @@ class PerspectiveCamera(var fov: Double = js.native, var aspect: Double = js.nat
   def setLens(focalLength: Double, frameHeight: Double = js.native): Unit = js.native
   def setViewOffset(fullWidth: Double, fullHeight: Double, x: Double, y: Double, width: Double, height: Double): Unit = js.native
   def updateProjectionMatrix(): Unit = js.native
+  def copy(source: PerspectiveCamera): PerspectiveCamera = js.native
   override def clone(): PerspectiveCamera = js.native
 }
 
@@ -450,6 +453,7 @@ class Face3(
   var normal: Vector3 = js.native
   var color: Color = js.native
   var vertexTangents: js.Array[Double] = js.native
+  def copy(source: Face3): Face3 = js.native
   override def clone(): Face3 = js.native
 }
 
@@ -523,6 +527,7 @@ class Geometry extends js.Object with EventDispatcher {
   def merge(geometry: Geometry, matrix: Matrix, materialIndexOffset: Double): Unit = js.native
   def mergeVertices(): Double = js.native
   def makeGroups(usesFaceMaterial: Boolean, maxVerticesInGroup: Double): Unit = js.native
+  def copy(source: Geometry): Geometry = js.native
   override def clone(): Geometry = js.native
   def dispose(): Unit = js.native
 }
@@ -584,7 +589,8 @@ class Object3D extends js.Object with EventDispatcher {
   def updateMatrix(): Unit = js.native
   def updateMatrixWorld(force: Boolean): Unit = js.native
   def updateMatrixWorld(): Unit = js.native
-  def clone(`object`: Object3D = js.native, recursive: Boolean = js.native): Object3D = js.native
+  def copy(source: Object3D, recursive: Boolean): Object3D = js.native
+  def clone(recursive: Boolean = js.native): Object3D = js.native
 }
 
 @js.native
@@ -631,7 +637,8 @@ class Raycaster(origin: Vector3 = js.native, direction: Vector3 = js.native, var
 @js.native
 @JSName("THREE.Light")
 class Light(var color: Double = js.native, intensity: Double = js.native) extends Object3D {
-  def clone(light: Light): Light = js.native
+  def copy(source: Light): Light = js.native
+  override def clone(): Light = js.native
 }
 
 @js.native
@@ -885,7 +892,8 @@ class Material extends js.Object with EventDispatcher {
   var visible: Boolean = js.native
   var needsUpdate: Boolean = js.native
   def setValues(values: Object): Unit = js.native
-  def clone(material: Material): Material = js.native
+  def copy(material: Material): Material = js.native
+  override def clone(): Material = js.native
   def dispose(): Unit = js.native
 }
 
@@ -1975,7 +1983,7 @@ class Bone(var skin: SkinnedMesh) extends Object3D {
 @JSName("THREE.Line")
 class Line(var geometry: Geometry = js.native, var material: LineBasicMaterial = js.native, var `type`: Double = js.native) extends Object3D {
   override def raycast(raycaster: Raycaster, intersects: js.Any): Unit = js.native
-  def clone(`object`: Line): Line = js.native
+  override def clone(): Line = js.native
 }
 
 @js.native
@@ -2000,7 +2008,8 @@ class LOD extends Object3D {
   def getObjectForDistance(distance: Double): Object3D = js.native
   override def raycast(raycaster: Raycaster, intersects: js.Any): Unit = js.native
   def update(camera: Camera): Unit = js.native
-  def clone(`object`: LOD): LOD = js.native
+  def copy(source: LOD): LOD = js.native
+  override def clone(): LOD = js.native
 }
 
 @js.native
@@ -2041,8 +2050,9 @@ class MorphAnimMesh(geometry: Geometry = js.native, material: MeshBasicMaterial 
 class PointCloud(var geometry: Geometry, var material: PointCloudMaterial = js.native) extends Object3D {
   var sortParticles: Boolean = js.native
   override def raycast(raycaster: Raycaster, intersects: js.Any): Unit = js.native
-  def clone(`object`: PointCloud): PointCloud = js.native
+  override def clone(): PointCloud = js.native
 }
+
 
 @js.native
 @JSName("THREE.Skeleton")
@@ -2067,7 +2077,7 @@ class SkinnedMesh(geometry: Geometry = js.native, material: MeshBasicMaterial = 
   def bind(skeleton: Skeleton, bindMatrix: Matrix4): Unit = js.native
   def pose(): Unit = js.native
   def normalizeSkinWeights(): Unit = js.native
-  def clone(`object`: SkinnedMesh): SkinnedMesh = js.native
+  override def clone(): SkinnedMesh = js.native
   var skeleton: Skeleton = js.native
 }
 
@@ -2077,7 +2087,7 @@ class Sprite(var material: Material = js.native) extends Object3D {
   var geometry: BufferGeometry = js.native
   override def raycast(raycaster: Raycaster, intersects: js.Any): Unit = js.native
   override def updateMatrix(): Unit = js.native
-  def clone(`object`: Sprite): Sprite = js.native
+  override def clone(): Sprite = js.native
 }
 
 @js.native
@@ -2462,7 +2472,7 @@ class CubeTexture(
   var images: js.Array[js.Any],
   mapping: Mapping = js.native, wrapS: Wrapping = js.native, wrapT: Wrapping = js.native, magFilter: TextureFilter = js.native, minFilter: TextureFilter = js.native, format: PixelFormat = js.native, `type`: TextureDataType = js.native, anisotropy: Double = js.native
 ) extends Texture(images, mapping, wrapS, wrapT, magFilter, minFilter, format, `type`, anisotropy) {
-  def clone(texture: CubeTexture): CubeTexture = js.native
+  override def clone(): CubeTexture = js.native
 }
 
 @js.native

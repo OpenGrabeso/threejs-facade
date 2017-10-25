@@ -44,7 +44,7 @@ object Dependencies {
 
     "org.webjars" % "codemirror" % Versions.codemirror,
 
-    "org.webjars" % "three.js" % Versions.threeJs))
+    "org.webjars.bower" % "three.js" % Versions.threeJs))
 
   //common purpose libs
   lazy val commonShared: Def.Initialize[Seq[ModuleID]] = Def.setting(Seq( //"com.softwaremill.quicklens" %%% "quicklens" % Versions.quicklens//, //nice lenses for case classes

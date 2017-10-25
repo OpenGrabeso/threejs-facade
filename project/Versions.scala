@@ -42,7 +42,7 @@ trait WebJarsVersions{
 
 	val semanticUI = "2.2.7"
 
-	val threeJs = "r82"
+	val threeJs = "0.82.0"
 
 	val codemirror = "5.22.0"
 }

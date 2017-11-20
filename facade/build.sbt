@@ -2,11 +2,11 @@ enablePlugins(ScalaJSPlugin)
 
 name := "threejs-facade"
 
-version := "0.0.82-0.1.8-local"
+version := "0.0.82-0.1.8-internal"
 
 scalaVersion := "2.12.1"
 
-organization := "org.denigma"
+organization := "net.gamatron"
 
 libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.9.1"
 

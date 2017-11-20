@@ -20,6 +20,18 @@ lazy val publishSettings = Seq(
 	bintrayPublishIvyStyle := true
 )
 
+lazy val publishGamatron = Seq(
+	publishMavenStyle := true,
+	publishTo := {
+		val nexus = "http://www.gamatron.net:8081/"
+		if (isSnapshot.value)
+			Some("Gamatron Snapshots Nexus" at nexus + "repository/maven-snapshots")
+		else
+			Some("Gamatron Releases Nexus"  at nexus + "repository/maven-releases")
+	},
+	credentials += Credentials("Sonatype Nexus Repository Manager", "www.gamatron.net", "admin", "admin123")
+)
+
 // code shared between backend and frontend
 lazy val shared = crossProject
   .crossType(CrossType.Pure)
@@ -69,14 +81,14 @@ lazy val noPublishSettings = Seq(
 lazy val commonSettings = Seq(
 	scalaVersion := Versions.scala,
     crossScalaVersions := Seq("2.11.8", "2.12.1"),
-	organization := "org.denigma",
+	organization := "net.gamatron",
 	resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases"), //for scala-js-binding
 	libraryDependencies ++= Dependencies.commonShared.value++Dependencies.testing.value,
 	updateOptions := updateOptions.value.withCachedResolution(true) //to speed up dependency resolution
 )
 
 lazy val facade = Project("threejs", file("facade"))
-	.settings(commonSettings ++ publishSettings: _*)
+	.settings(commonSettings ++ publishGamatron: _*)
 	.settings(
 		name := "threejs-facade",
 		version := Versions.threejsFacade,

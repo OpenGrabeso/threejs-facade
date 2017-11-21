@@ -17,7 +17,7 @@ lazy val publishGamatron = Seq(
 		else
 			Some("Gamatron Releases Nexus"  at nexus + "repository/maven-releases")
 	},
-	credentials += Credentials("Sonatype Nexus Repository Manager", "www.gamatron.net", "admin", "admin123")
+	credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
 )
 
 // code shared between backend and frontend

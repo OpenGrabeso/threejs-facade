@@ -12,8 +12,6 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-twirl" % "1.3.0") // templates
 
 addSbtPlugin("com.gilt" % "sbt-dependency-graph-sugar" % "0.8.2") // visual dependency management
 
-addSbtPlugin("me.lessis" % "bintray-sbt" % "0.3.0") // for publishing
-
 addSbtPlugin("com.typesafe.sbt" % "sbt-gzip" % "1.0.0")
 
 addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.8.0")

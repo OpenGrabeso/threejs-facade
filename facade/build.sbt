@@ -2,7 +2,7 @@ enablePlugins(ScalaJSPlugin)
 
 name := "threejs-facade"
 
-version := "0.0.82-0.1.8-internal"
+version := "0.0.82-0.1.8-internal-SNAPSHOT"
 
 scalaVersion := "2.12.1"
 

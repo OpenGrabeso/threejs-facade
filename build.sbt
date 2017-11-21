@@ -8,22 +8,10 @@ import sbt.Keys._
 import sbt._
 import spray.revolver.RevolverPlugin.autoImport._
 
-lazy val bintrayPublishIvyStyle = settingKey[Boolean]("=== !publishMavenStyle") //workaround for sbt-bintray bug
-
-lazy val publishSettings = Seq(
-	bintrayRepository := "denigma-releases",
-
-	bintrayOrganization := Some("denigma"),
-
-	licenses += ("MPL-2.0", url("http://opensource.org/licenses/MPL-2.0")),
-
-	bintrayPublishIvyStyle := true
-)
-
 lazy val publishGamatron = Seq(
 	publishMavenStyle := true,
 	publishTo := {
-		val nexus = "http://www.gamatron.net:8081/"
+		val nexus = "https://www.gamatron.net/nexus/"
 		if (isSnapshot.value)
 			Some("Gamatron Snapshots Nexus" at nexus + "repository/maven-snapshots")
 		else
@@ -82,7 +70,6 @@ lazy val commonSettings = Seq(
 	scalaVersion := Versions.scala,
     crossScalaVersions := Seq("2.11.8", "2.12.1"),
 	organization := "net.gamatron",
-	resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases"), //for scala-js-binding
 	libraryDependencies ++= Dependencies.commonShared.value++Dependencies.testing.value,
 	updateOptions := updateOptions.value.withCachedResolution(true) //to speed up dependency resolution
 )

@@ -8,6 +8,10 @@ import sbt.Keys._
 import sbt._
 import spray.revolver.RevolverPlugin.autoImport._
 
+resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases") //add resolver
+
+resolvers += Resolver.jcenterRepo
+
 lazy val publishGamatron = Seq(
 	publishMavenStyle := true,
 	publishTo := {
@@ -44,7 +48,7 @@ lazy val frontend = project.in(file("preview/frontend"))
 //backend preview project
 lazy val backend = Project("backend", file("preview/backend"),settings = commonSettings)
 	.settings(
-		libraryDependencies ++= Dependencies.akka.value++Dependencies.templates.value++Dependencies.webjars.value,
+		libraryDependencies ++= Dependencies.templates.value++Dependencies.webjars.value,
 		mainClass in Compile :=Some("org.denigma.preview.Main"),
 		scalaJSProjects := Seq(frontend),
 		(emitSourceMaps in fullOptJS) := true,

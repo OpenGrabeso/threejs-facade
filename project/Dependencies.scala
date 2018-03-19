@@ -9,10 +9,6 @@ object Dependencies {
   ))
 
   //akka-related libs
-  lazy val akka = Def.setting(Seq(
-
-    "org.denigma" %%% "akka-http-extensions" % Versions.akkaHttpExtensions))
-
   lazy val templates = Def.setting(Seq(
     "com.github.japgolly.scalacss" %%% "core" % Versions.scalaCSS,
 
@@ -30,11 +26,7 @@ object Dependencies {
 
     "org.querki" %%% "jquery-facade" % Versions.jqueryFacade, //scalajs facade for jQuery + jQuery extensions
 
-    "org.querki" %%% "querki-jsext" % Versions.jsext, //useful sclalajs extensions
-
-    "org.denigma" %%% "codemirror-facade" % Versions.codemirrorFacade,
-
-    "org.denigma" %%% "binding" % Versions.binding))
+    "org.querki" %%% "querki-jsext" % Versions.jsext))
 
   //dependencies on javascript libs
   lazy val webjars = Def.setting(Seq(

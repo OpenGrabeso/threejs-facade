@@ -893,7 +893,7 @@ class Material extends js.Object with EventDispatcher {
   var needsUpdate: Boolean = js.native
   def setValues(values: Object): Unit = js.native
   def copy(material: Material): Material = js.native
-  val onBeforeCompile: js.Function1[Shader, Unit] = js.native
+  var onBeforeCompile: js.Function1[Shader, Unit] = js.native
   override def clone(): Material = js.native
   def dispose(): Unit = js.native
 }

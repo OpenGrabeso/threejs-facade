@@ -348,40 +348,40 @@ class BufferAttribute(var array: js.Any, var itemSize: Double) extends js.Object
 }
 
 @js.native
-@JSName("THREE.Int8Attribute")
-class Int8Attribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
+@JSName("THREE.Int8BufferAttribute")
+class Int8BufferAttribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
 
 @js.native
-@JSName("THREE.Uint8Attribute")
-class Uint8Attribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
+@JSName("THREE.Uint8BufferAttribute")
+class Uint8BufferAttribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
 
 @js.native
-@JSName("THREE.Uint8ClampedAttribute")
-class Uint8ClampedAttribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
+@JSName("THREE.Uint8ClampedBufferAttribute")
+class Uint8ClampedBufferAttribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
 
 @js.native
-@JSName("THREE.Int16Attribute")
-class Int16Attribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
+@JSName("THREE.Int16BufferAttribute")
+class Int16BufferAttribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
 
 @js.native
-@JSName("THREE.Uint16Attribute")
-class Uint16Attribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
+@JSName("THREE.Uint16BufferAttribute")
+class Uint16BufferAttribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
 
 @js.native
-@JSName("THREE.Int32Attribute")
-class Int32Attribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
+@JSName("THREE.Int32BufferAttribute")
+class Int32BufferAttribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
 
 @js.native
-@JSName("THREE.Uint32Attribute")
-class Uint32Attribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
+@JSName("THREE.Uint32BufferAttribute")
+class Uint32BufferAttribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
 
 @js.native
-@JSName("THREE.Float32Attribute")
-class Float32Attribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
+@JSName("THREE.Float32BufferAttribute")
+class Float32BufferAttribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
 
 @js.native
-@JSName("THREE.Float64Attribute")
-class Float64Attribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
+@JSName("THREE.Float64BufferAttribute")
+class Float64BufferAttribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
 
 @js.native
 class GeometryGroup(var start: Double, var count: Double, var materialIndex: Double) extends js.Object
@@ -893,6 +893,7 @@ class Material extends js.Object with EventDispatcher {
   var needsUpdate: Boolean = js.native
   def setValues(values: Object): Unit = js.native
   def copy(material: Material): Material = js.native
+  val onBeforeCompile: js.Function1[Shader, Unit] = js.native
   override def clone(): Material = js.native
   def dispose(): Unit = js.native
 }

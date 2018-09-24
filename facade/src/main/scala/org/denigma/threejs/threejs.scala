@@ -2152,6 +2152,12 @@ trait WebGLRendererParameters extends js.Object {
 }
 
 @js.native
+@JSName("THREE.WebGLExtensions")
+class WebGLExtensions extends js.Object {
+  def get(name: String): js.Any = js.native
+}
+
+@js.native
 @JSName("THREE.WebGLRenderer")
 class WebGLRenderer(parameters: WebGLRendererParameters = js.native) extends Renderer {
 
@@ -2177,6 +2183,7 @@ class WebGLRenderer(parameters: WebGLRendererParameters = js.native) extends Ren
   var renderPluginsPost: js.Array[RendererPlugin] = js.native
   var info: js.Any = js.native
   var shadowMapPlugin: ShadowMapPlugin = js.native
+  var extensions: WebGLExtensions = js.native
   def getContext(): WebGLRenderingContext = js.native
   def supportsVertexTextures(): Boolean = js.native
   def supportsFloatTextures(): Boolean = js.native

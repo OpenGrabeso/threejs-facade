@@ -635,8 +635,24 @@ class Raycaster(origin: Vector3 = js.native, direction: Vector3 = js.native, var
 }
 
 @js.native
+@JSName("THREE.LightShadow")
+class LightShadow(var camera: Camera = js.native) extends js.Any {
+  var bias: Double = js.native
+  var radius: Double = js.native
+
+  var mapSize: Vector2 = js.native
+
+  var map: WebGLRenderTarget = js.native
+  var matrix: Matrix4 = js.native
+
+}
+
+@js.native
 @JSName("THREE.Light")
 class Light(var color: Double = js.native, intensity: Double = js.native) extends Object3D {
+
+  var shadow: LightShadow = js.native
+
   def copy(source: Light): Light = js.native
   override def clone(): Light = js.native
 }
@@ -664,31 +680,6 @@ class AreaLight(color: Double = js.native, intensity: Double = js.native) extend
 class DirectionalLight(color: Double = js.native, intensity: Double = js.native) extends Light(color, intensity) {
   var target: Object3D = js.native
 
-  var onlyShadow: Boolean = js.native
-  var shadowCameraNear: Double = js.native
-  var shadowCameraFar: Double = js.native
-  var shadowCameraLeft: Double = js.native
-  var shadowCameraRight: Double = js.native
-  var shadowCameraTop: Double = js.native
-  var shadowCameraBottom: Double = js.native
-  var shadowCameraVisible: Boolean = js.native
-  var shadowBias: Double = js.native
-  var shadowDarkness: Double = js.native
-  var shadowMapWidth: Double = js.native
-  var shadowMapHeight: Double = js.native
-  var shadowCascade: Boolean = js.native
-  var shadowCascadeOffset: Vector3 = js.native
-  var shadowCascadeCount: Double = js.native
-  var shadowCascadeBias: js.Array[Double] = js.native
-  var shadowCascadeWidth: js.Array[Double] = js.native
-  var shadowCascadeHeight: js.Array[Double] = js.native
-  var shadowCascadeNearZ: js.Array[Double] = js.native
-  var shadowCascadeFarZ: js.Array[Double] = js.native
-  var shadowCascadeArray: js.Array[DirectionalLight] = js.native
-  var shadowMap: RenderTarget = js.native
-  var shadowMapSize: Double = js.native
-  var shadowCamera: Camera = js.native
-  var shadowMatrix: Matrix4 = js.native
   override def clone(): DirectionalLight = js.native
 }
 
@@ -2461,7 +2452,7 @@ class Scene extends Object3D {
   var fog: IFog = js.native
   var overrideMaterial: Material = js.native
   var autoUpdate: Boolean = js.native
-
+  var background: js.Any = js.native // Color, Texture or CubeTexture
 }
 
 @js.native

@@ -7,7 +7,7 @@ object Versions extends WebJarsVersions with ScalaJSVersions with SharedVersions
 
 trait ScalaJSVersions {
 
-	val threejsFacade =  "0.0.86-0.0.4-internal-SNAPSHOT" // see also facade/build.sbt - version
+	val threejsFacade =  "0.0.86-0.0.5-internal-SNAPSHOT" // see also facade/build.sbt - version
 
 	val jqueryFacade = "1.0"
 

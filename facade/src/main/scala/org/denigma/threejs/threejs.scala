@@ -389,7 +389,7 @@ class GeometryGroup(var start: Double, var count: Double, var materialIndex: Dou
 @js.native
 @JSName("THREE.BufferGeometry")
 class BufferGeometry extends js.Object with EventDispatcher {
-  var attributes: js.Array[BufferAttribute] = js.native
+  var attributes: js.Dictionary[BufferAttribute] = js.native
   var groups: js.Array[GeometryGroup] = js.native
   var boundingBox: BoundingBox3D = js.native
   var boundingSphere: BoundingSphere = js.native

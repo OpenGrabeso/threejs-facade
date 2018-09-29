@@ -2148,6 +2148,22 @@ class WebGLExtensions extends js.Object {
   def get(name: String): js.Any = js.native
 }
 
+
+@js.native
+@JSName("THREE.WebGLShadowMap")
+class WebGLShadowMap() extends js.Any {
+  var enabled: Boolean = js.native
+
+  var autoUpdate: Boolean = js.native
+  var needsUpdate: Boolean = js.native
+
+  var `type`: ShadowMapType = js.native
+
+  var renderReverseSided: Boolean = js.native
+  var renderSingleSided: Boolean = js.native
+
+}
+
 @js.native
 @JSName("THREE.WebGLRenderer")
 class WebGLRenderer(parameters: WebGLRendererParameters = js.native) extends Renderer {
@@ -2161,19 +2177,13 @@ class WebGLRenderer(parameters: WebGLRendererParameters = js.native) extends Ren
   var sortObjects: Boolean = js.native
   var gammaInput: Boolean = js.native
   var gammaOutput: Boolean = js.native
-  var shadowMapEnabled: Boolean = js.native
-  var shadowMapAutoUpdate: Boolean = js.native
-  var shadowMapType: ShadowMapType = js.native
-  var shadowMapCullFace: CullFace = js.native
-  var shadowMapDebug: Boolean = js.native
-  var shadowMapCascade: Boolean = js.native
+  var shadowMap: WebGLShadowMap = js.native
   var maxMorphTargets: Double = js.native
   var maxMorphNormals: Double = js.native
   var autoScaleCubemaps: Boolean = js.native
   var renderPluginsPre: js.Array[RendererPlugin] = js.native
   var renderPluginsPost: js.Array[RendererPlugin] = js.native
   var info: js.Any = js.native
-  var shadowMapPlugin: ShadowMapPlugin = js.native
   var extensions: WebGLExtensions = js.native
   def getContext(): WebGLRenderingContext = js.native
   def supportsVertexTextures(): Boolean = js.native
@@ -2195,9 +2205,6 @@ class WebGLRenderer(parameters: WebGLRendererParameters = js.native) extends Ren
   def clearDepth(): Unit = js.native
   def clearStencil(): Unit = js.native
   def clearTarget(renderTarget: WebGLRenderTarget, color: Boolean, depth: Boolean, stencil: Boolean): Unit = js.native
-  def addPostPlugin(plugin: RendererPlugin): Unit = js.native
-  def addPrePlugin(plugin: RendererPlugin): Unit = js.native
-  def updateShadowMap(scene: Scene, camera: Camera): Unit = js.native
   def renderBufferImmediate(`object`: Object3D, program: Object, material: Material): Unit = js.native
   def renderBufferDirect(camera: Camera, lights: js.Array[Light], fog: Fog, material: Material, geometryGroup: js.Any, `object`: Object3D): Unit = js.native
   def renderBuffer(camera: Camera, lights: js.Array[Light], fog: Fog, material: Material, geometryGroup: js.Any, `object`: Object3D): Unit = js.native

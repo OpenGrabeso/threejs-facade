@@ -93,6 +93,14 @@ object THREE extends js.Object {
 }
 
 @js.native
+trait HasJSEquals[T <: HasJSEquals[T]] extends js.Any {
+  this: T =>
+
+  @JSName("equals")
+  def jsEquals(that: T): Boolean = js.native
+}
+
+@js.native
 sealed trait CullFace extends js.Object {
 }
 
@@ -1252,7 +1260,7 @@ class SpriteMaterial(parameters: SpriteMaterialParameters = js.native) extends M
 
 @js.native
 @JSName("THREE.Box2")
-class Box2(var min: Vector2 = js.native, var max: Vector2 = js.native) extends js.Object {
+class Box2(var min: Vector2 = js.native, var max: Vector2 = js.native) extends js.Object with HasJSEquals[Box2] {
   def set(min: Vector2, max: Vector2): Box2 = js.native
   def setFromPoints(points: js.Array[Vector2]): Box2 = js.native
   def setFromCenterAndSize(center: Vector2, size: Double): Box2 = js.native
@@ -1273,13 +1281,12 @@ class Box2(var min: Vector2 = js.native, var max: Vector2 = js.native) extends j
   def intersect(box: Box2): Box2 = js.native
   def union(box: Box2): Box2 = js.native
   def translate(offset: Vector2): Box2 = js.native
-  def equals(box: Box2): Boolean = js.native
   override def clone(): Box2 = js.native
 }
 
 @js.native
 @JSName("THREE.Box3")
-class Box3(var min: Vector3 = js.native, var max: Vector3 = js.native) extends js.Object {
+class Box3(var min: Vector3 = js.native, var max: Vector3 = js.native) extends js.Object with HasJSEquals[Box3] {
   def set(min: Vector3, max: Vector3): Box3 = js.native
   def setFromPoints(points: js.Array[Vector3]): Box3 = js.native
   def setFromCenterAndSize(center: Vector3, size: Double): Box3 = js.native
@@ -1303,7 +1310,6 @@ class Box3(var min: Vector3 = js.native, var max: Vector3 = js.native) extends j
   def union(box: Box3): Box3 = js.native
   def applyMatrix4(matrix: Matrix4): Box3 = js.native
   def translate(offset: Vector3): Box3 = js.native
-  def equals(box: Box3): Boolean = js.native
   override def clone(): Box3 = js.native
 }
 
@@ -1316,7 +1322,7 @@ trait HSL extends js.Object {
 
 @js.native
 @JSName("THREE.Color")
-class Color(color: Color = js.native) extends js.Object {
+class Color(color: Color = js.native) extends js.Object with HasJSEquals[Color] {
   def this(r: Double, g: Double, b: Double) = this()
   def this(hex: Double) = this()
   var r: Double = js.native
@@ -1343,7 +1349,6 @@ class Color(color: Color = js.native) extends js.Object {
   def multiply(color: Color): Color = js.native
   def multiplyScalar(s: Double): Color = js.native
   def lerp(color: Color, alpha: Double): Color = js.native
-  def equals(color: Color): Boolean = js.native
   def fromArray(rgb: js.Array[Double]): Color = js.native
   def toArray(): js.Array[Double] = js.native
   override def clone(): Color = js.native
@@ -1508,13 +1513,12 @@ object ColorKeywords extends js.Object {
 
 @js.native
 @JSName("THREE.Euler")
-class Euler(var x: Double = js.native, var y: Double = js.native, var z: Double = js.native, var order: String = js.native) extends js.Object {
+class Euler(var x: Double = js.native, var y: Double = js.native, var z: Double = js.native, var order: String = js.native) extends js.Object with HasJSEquals[Euler] {
   def set(x: Double, y: Double, z: Double, order: String = js.native): Euler = js.native
   def copy(euler: Euler): Euler = js.native
   def setFromRotationMatrix(m: Matrix4, order: String = js.native): Euler = js.native
   def setFromQuaternion(q: Quaternion, order: String = js.native, update: Boolean = js.native): Euler = js.native
   def reorder(newOrder: String): Euler = js.native
-  def equals(euler: Euler): Boolean = js.native
   def fromArray(xyzo: js.Array[js.Any]): Euler = js.native
   def toArray(): js.Array[js.Any] = js.native
   var onChange: js.Function0[Unit] = js.native
@@ -1537,7 +1541,7 @@ class Frustum(p0: Plane = js.native, p1: Plane = js.native, p2: Plane = js.nativ
 
 @js.native
 @JSName("THREE.Line3")
-class Line3(var start: Vector3 = js.native, var end: Vector3 = js.native) extends js.Object {
+class Line3(var start: Vector3 = js.native, var end: Vector3 = js.native) extends js.Object with HasJSEquals[Line3] {
   def set(start: Vector3 = js.native, end: Vector3 = js.native): Line3 = js.native
   def copy(line: Line3): Line3 = js.native
   def center(optionalTarget: Vector3 = js.native): Vector3 = js.native
@@ -1548,7 +1552,6 @@ class Line3(var start: Vector3 = js.native, var end: Vector3 = js.native) extend
   def closestPointToPointParameter(point: Vector3, clampToLine: Boolean = js.native): Double = js.native
   def closestPointToPoint(point: Vector3, clampToLine: Boolean = js.native, optionalTarget: Vector3 = js.native): Vector3 = js.native
   def applyMatrix4(matrix: Matrix4): Line3 = js.native
-  def equals(line: Line3): Boolean = js.native
   override def clone(): Line3 = js.native
 }
 
@@ -1645,7 +1648,7 @@ class Matrix4 extends Matrix {
 
 @js.native
 @JSName("THREE.Plane")
-class Plane(var normal: Vector3 = js.native, var constant: Double = js.native) extends js.Object {
+class Plane(var normal: Vector3 = js.native, var constant: Double = js.native) extends js.Object with HasJSEquals[Plane] {
   def set(normal: Vector3, constant: Double): Plane = js.native
   def setComponents(x: Double, y: Double, z: Double, w: Double): Plane = js.native
   def setFromNormalAndCoplanarPoint(normal: Vector3, point: Vector3): Plane = js.native
@@ -1662,13 +1665,12 @@ class Plane(var normal: Vector3 = js.native, var constant: Double = js.native) e
   def coplanarPoint(optionalTarget: Boolean = js.native): Vector3 = js.native
   def applyMatrix4(matrix: Matrix4, optionalNormalMatrix: Matrix3 = js.native): Plane = js.native
   def translate(offset: Vector3): Plane = js.native
-  def equals(plane: Plane): Boolean = js.native
   override def clone(): Plane = js.native
 }
 
 @js.native
 @JSName("THREE.Quaternion")
-class Quaternion(var x: Double = js.native, var y: Double = js.native, var z: Double = js.native, var w: Double = js.native) extends js.Object {
+class Quaternion(var x: Double = js.native, var y: Double = js.native, var z: Double = js.native, var w: Double = js.native) extends js.Object with HasJSEquals[Quaternion] {
   def set(x: Double, y: Double, z: Double, w: Double): Quaternion = js.native
   def copy(q: Quaternion): Quaternion = js.native
   def setFromEuler(euler: Euler, update: Boolean = js.native): Quaternion = js.native
@@ -1685,7 +1687,6 @@ class Quaternion(var x: Double = js.native, var y: Double = js.native, var z: Do
   def multiplyQuaternions(a: Quaternion, b: Quaternion): Quaternion = js.native
   def multiplyVector3(vector: Vector3): Vector3 = js.native
   def slerp(qb: Quaternion, t: Double): Quaternion = js.native
-  def equals(v: Quaternion): Boolean = js.native
   def fromArray(n: js.Array[Double]): Quaternion = js.native
   def toArray(): js.Array[Double] = js.native
   var onChange: js.Function0[Unit] = js.native
@@ -1700,7 +1701,7 @@ object Quaternion extends js.Object {
 
 @js.native
 @JSName("THREE.Ray")
-class Ray(var origin: Vector3 = js.native, var direction: Vector3 = js.native) extends js.Object {
+class Ray(var origin: Vector3 = js.native, var direction: Vector3 = js.native) extends js.Object with HasJSEquals[Ray] {
   def set(origin: Vector3, direction: Vector3): Ray = js.native
   def copy(ray: Ray): Ray = js.native
   def at(t: Double, optionalTarget: Vector3 = js.native): Vector3 = js.native
@@ -1717,13 +1718,12 @@ class Ray(var origin: Vector3 = js.native, var direction: Vector3 = js.native) e
   def intersectBox(box: Box3, optionalTarget: Vector3 = js.native): Vector3 = js.native
   def intersectTriangle(a: Vector3, b: Vector3, c: Vector3, backfaceCulling: Boolean, optionalTarget: Vector3 = js.native): Vector3 = js.native
   def applyMatrix4(matrix4: Matrix4): Ray = js.native
-  def equals(ray: Ray): Boolean = js.native
   override def clone(): Ray = js.native
 }
 
 @js.native
 @JSName("THREE.Sphere")
-class Sphere(var center: Vector3 = js.native, var radius: Double = js.native) extends js.Object {
+class Sphere(var center: Vector3 = js.native, var radius: Double = js.native) extends js.Object with HasJSEquals[Sphere] {
   def set(center: Vector3, radius: Double): Sphere = js.native
   def setFromPoints(points: js.Array[Vector3], optionalCenter: Vector3 = js.native): Sphere = js.native
   def copy(sphere: Sphere): Sphere = js.native
@@ -1735,7 +1735,6 @@ class Sphere(var center: Vector3 = js.native, var radius: Double = js.native) ex
   def getBoundingBox(optionalTarget: Box3 = js.native): Box3 = js.native
   def applyMatrix4(matrix: Matrix4): Sphere = js.native
   def translate(offset: Vector3): Sphere = js.native
-  def equals(sphere: Sphere): Boolean = js.native
   override def clone(): Sphere = js.native
 }
 
@@ -1758,7 +1757,7 @@ class Spline(var points: js.Array[SplineControlPoint]) extends js.Object {
 
 @js.native
 @JSName("THREE.Triangle")
-class Triangle(var a: Vector3 = js.native, var b: Vector3 = js.native, var c: Vector3 = js.native) extends js.Object {
+class Triangle(var a: Vector3 = js.native, var b: Vector3 = js.native, var c: Vector3 = js.native) extends js.Object with HasJSEquals[Triangle] {
   def set(a: Vector3, b: Vector3, c: Vector3): Triangle = js.native
   def setFromPointsAndIndices(points: js.Array[Vector3], i0: Double, i1: Double, i2: Double): Triangle = js.native
   def copy(triangle: Triangle): Triangle = js.native
@@ -1768,7 +1767,6 @@ class Triangle(var a: Vector3 = js.native, var b: Vector3 = js.native, var c: Ve
   def plane(optionalTarget: Vector3 = js.native): Plane = js.native
   def barycoordFromPoint(point: Vector3, optionalTarget: Vector3 = js.native): Vector3 = js.native
   def containsPoint(point: Vector3): Boolean = js.native
-  def equals(triangle: Triangle): Boolean = js.native
   override def clone(): Triangle = js.native
 }
 
@@ -1800,13 +1798,14 @@ trait Vector extends js.Object {
   def distanceToSquared(v: Vector): Double = js.native
   def setLength(l: Double): Vector = js.native
   def lerp(v: Vector, alpha: Double): Vector = js.native
-  def equals(v: Vector): Boolean = js.native
+  @JSName("equals")
+  def jsEquals(v: Vector): Boolean = js.native
   override def clone(): Vector = js.native
 }
 
 @js.native
 @JSName("THREE.Vector2")
-class Vector2(var x: Double = js.native, var y: Double = js.native) extends Vector {
+class Vector2(var x: Double = js.native, var y: Double = js.native) extends Vector with HasJSEquals[Vector2] {
   def set(x: Double, y: Double): Vector2 = js.native
   def setX(x: Double): Vector2 = js.native
   def setY(y: Double): Vector2 = js.native
@@ -1839,7 +1838,6 @@ class Vector2(var x: Double = js.native, var y: Double = js.native) extends Vect
   def distanceToSquared(v: Vector2): Double = js.native
   override def setLength(l: Double): Vector2 = js.native
   def lerp(v: Vector2, alpha: Double): Vector2 = js.native
-  def equals(v: Vector2): Boolean = js.native
   def fromArray(xy: js.Array[Double]): Vector2 = js.native
   def toArray(): js.Array[Double] = js.native
   override def clone(): Vector2 = js.native
@@ -1847,7 +1845,7 @@ class Vector2(var x: Double = js.native, var y: Double = js.native) extends Vect
 
 @js.native
 @JSName("THREE.Vector3")
-class Vector3(var x: Double = js.native, var y: Double = js.native, var z: Double = js.native) extends Vector {
+class Vector3(var x: Double = js.native, var y: Double = js.native, var z: Double = js.native) extends Vector with HasJSEquals[Vector3] {
   def set(x: Double, y: Double, z: Double): Vector3 = js.native
   def setX(x: Double): Vector3 = js.native
   def setY(y: Double): Vector3 = js.native
@@ -1902,7 +1900,6 @@ class Vector3(var x: Double = js.native, var y: Double = js.native, var z: Doubl
   def setFromMatrixScale(m: Matrix4): Vector3 = js.native
   def setFromSpherical(s: Spherical): Vector3 = js.native
   def setFromMatrixColumn(matrix: Matrix4, index: Double): Vector3 = js.native
-  def equals(v: Vector3): Boolean = js.native
   def fromArray(xyz: js.Array[Double]): Vector3 = js.native
   def toArray(): js.Array[Double] = js.native
   override def clone(): Vector3 = js.native
@@ -1910,7 +1907,7 @@ class Vector3(var x: Double = js.native, var y: Double = js.native, var z: Doubl
 
 @js.native
 @JSName("THREE.Vector4")
-class Vector4(var x: Double = js.native, var y: Double = js.native, var z: Double = js.native, var w: Double = js.native) extends Vector {
+class Vector4(var x: Double = js.native, var y: Double = js.native, var z: Double = js.native, var w: Double = js.native) extends Vector with HasJSEquals[Vector4] {
   def set(x: Double, y: Double, z: Double, w: Double): Vector4 = js.native
   def setX(x: Double): Vector4 = js.native
   def setY(y: Double): Vector4 = js.native
@@ -1945,7 +1942,6 @@ class Vector4(var x: Double = js.native, var y: Double = js.native, var z: Doubl
   override def normalize(): Vector4 = js.native
   override def setLength(l: Double): Vector4 = js.native
   def lerp(v: Vector4, alpha: Double): Vector4 = js.native
-  def equals(v: Vector4): Boolean = js.native
   def fromArray(xyzw: js.Array[Double]): js.Array[Double] = js.native
   def toArray(): js.Array[Double] = js.native
   override def clone(): Vector4 = js.native

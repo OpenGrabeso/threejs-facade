@@ -395,8 +395,15 @@ class Float64BufferAttribute(data: js.Any, itemSize: Double) extends BufferAttri
 class GeometryGroup(var start: Double, var count: Double, var materialIndex: Double) extends js.Object
 
 @js.native
+class AGeometry extends js.Object with EventDispatcher {
+  override def clone(): AGeometry = js.native
+  def copy(geometry: AGeometry): AGeometry = js.native
+  def dispose(): Unit = js.native
+}
+
+@js.native
 @JSName("THREE.BufferGeometry")
-class BufferGeometry extends js.Object with EventDispatcher {
+class BufferGeometry extends AGeometry {
   var attributes: js.Dictionary[BufferAttribute] = js.native
   var groups: js.Array[GeometryGroup] = js.native
   var boundingBox: BoundingBox3D = js.native
@@ -496,7 +503,7 @@ trait BoundingSphere extends js.Object {
 
 @js.native
 @JSName("THREE.Geometry")
-class Geometry extends js.Object with EventDispatcher {
+class Geometry extends AGeometry {
   var id: Double = js.native
   var uuid: String = js.native
   var name: String = js.native
@@ -537,7 +544,7 @@ class Geometry extends js.Object with EventDispatcher {
   def makeGroups(usesFaceMaterial: Boolean, maxVerticesInGroup: Double): Unit = js.native
   def copy(source: Geometry): Geometry = js.native
   override def clone(): Geometry = js.native
-  def dispose(): Unit = js.native
+  override def dispose(): Unit = js.native
 }
 
 @js.native
@@ -548,6 +555,7 @@ class Object3D extends js.Object with EventDispatcher {
   var name: String = js.native
   var parent: Object3D = js.native
   var children: js.Array[Object3D] = js.native
+  var geometry: AGeometry = js.native
   var up: Vector3 = js.native
   val position: Vector3 = js.native
   var rotation: Euler = js.native
@@ -1969,7 +1977,7 @@ class Bone(var skin: SkinnedMesh) extends Object3D {
 
 @js.native
 @JSName("THREE.Line")
-class Line(var geometry: Geometry = js.native, var material: LineBasicMaterial = js.native, var `type`: Double = js.native) extends Object3D {
+class Line(geometry: Geometry = js.native, var material: LineBasicMaterial = js.native, var `type`: Double = js.native) extends Object3D {
   override def raycast(raycaster: Raycaster, intersects: js.Any): Unit = js.native
   override def clone(): Line = js.native
 }
@@ -2002,7 +2010,7 @@ class LOD extends Object3D {
 
 @js.native
 @JSName("THREE.Mesh")
-class Mesh(var geometry: js.Any = js.native, var material: Material = js.native) extends Object3D {
+class Mesh(geometry: AGeometry = js.native, var material: Material = js.native) extends Object3D {
   def updateMorphTargets(): Unit = js.native
   def getMorphTargetIndexByName(name: String): Double = js.native
   override def raycast(raycaster: Raycaster, intersects: js.Any): Unit = js.native
@@ -2035,7 +2043,7 @@ class MorphAnimMesh(geometry: Geometry = js.native, material: MeshBasicMaterial 
 
 @js.native
 @JSName("THREE.PointCloud")
-class PointCloud(var geometry: Geometry, var material: PointCloudMaterial = js.native) extends Object3D {
+class PointCloud(geometry: Geometry, var material: PointCloudMaterial = js.native) extends Object3D {
   var sortParticles: Boolean = js.native
   override def raycast(raycaster: Raycaster, intersects: js.Any): Unit = js.native
   override def clone(): PointCloud = js.native
@@ -2072,7 +2080,6 @@ class SkinnedMesh(geometry: Geometry = js.native, material: MeshBasicMaterial = 
 @js.native
 @JSName("THREE.Sprite")
 class Sprite(var material: Material = js.native) extends Object3D {
-  var geometry: BufferGeometry = js.native
   override def raycast(raycaster: Raycaster, intersects: js.Any): Unit = js.native
   override def updateMatrix(): Unit = js.native
   override def clone(): Sprite = js.native

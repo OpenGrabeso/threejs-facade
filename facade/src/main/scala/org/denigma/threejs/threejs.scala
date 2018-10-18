@@ -590,7 +590,7 @@ class Object3D extends js.Object with EventDispatcher {
   def localToWorld(vector: Vector3): Vector3 = js.native
   def worldToLocal(vector: Vector3): Vector3 = js.native
   def lookAt(vector: Vector3): Unit = js.native
-  def add(`object`: Object3D): Unit = js.native
+  def add(`object`: Object3D*): Unit = js.native
   def remove(`object`: Object3D): Unit = js.native
   def raycast(raycaster: Raycaster, intersects: js.Any): Unit = js.native
   def traverse(callback: js.Function1[Object3D, Any]): Unit = js.native
@@ -3139,7 +3139,7 @@ class LensFlare(texture: Texture = js.native, size: Double = js.native, distance
   var positionScreen: Vector3 = js.native
   var customUpdateCallback: js.Function1[LensFlare, Unit] = js.native
   def add(texture: Texture, size: Double = js.native, distance: Double = js.native, blending: Blending = js.native, color: Color = js.native): Unit = js.native
-  override def add(obj: Object3D): Unit = js.native
+  override def add(obj: Object3D*): Unit = js.native
   def updateLensFlares(): Unit = js.native
 }
 

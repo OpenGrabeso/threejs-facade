@@ -2171,7 +2171,7 @@ class WebGLShadowMap() extends js.Any {
 @JSName("THREE.WebGLRenderer")
 class WebGLRenderer(parameters: WebGLRendererParameters = js.native) extends Renderer {
 
-  var context: js.Any = js.native
+  var context: WebGLRenderingContext = js.native
   var devicePixelRatio: Double = js.native
   var autoClear: Boolean = js.native
   var autoClearColor: Boolean = js.native

@@ -1,12 +1,15 @@
-import com.typesafe.sbt.SbtNativePackager.autoImport._
-import com.typesafe.sbt.gzip.Import.gzip
-import com.typesafe.sbt.web.SbtWeb.autoImport._
-import com.typesafe.sbt.web.pipeline.Pipeline
-import com.typesafe.sbt.web.{PathMapping, SbtWeb}
-import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._
-import sbt.Keys._
-import sbt._
-import spray.revolver.RevolverPlugin.autoImport._
+lazy val crossVersions = Seq("2.11.8", "2.12.1")
+
+scalaVersion := Versions.scala
+
+crossScalaVersions := crossVersions
+
+organization := "net.gamatron"
+
+
+name := "threejs-facade"
+
+version := "0.0.86-0.0.11"
 
 resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases") //add resolver
 
@@ -24,19 +27,8 @@ publishTo := {
 
 credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
 
-lazy val crossVersions = Seq("2.11.8", "2.12.1")
-
-scalaVersion := Versions.scala
-
-crossScalaVersions := crossVersions
-
-organization := "net.gamatron"
 
 libraryDependencies ++= Dependencies.commonShared.value++Dependencies.testing.value
-
-name := "threejs-facade"
-
-version := Versions.threejsFacade
 
 crossScalaVersions := crossVersions
 
@@ -50,4 +42,3 @@ jsDependencies += "org.webjars.bower" % "three.js" % Versions.threeJs / "three.j
 
 enablePlugins(ScalaJSPlugin)
 
-disablePlugins(RevolverPlugin)

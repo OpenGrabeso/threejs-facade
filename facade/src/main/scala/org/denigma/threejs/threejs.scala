@@ -404,6 +404,7 @@ class AGeometry extends js.Object with EventDispatcher {
 @js.native
 @JSName("THREE.BufferGeometry")
 class BufferGeometry extends AGeometry {
+  var name: String = js.native
   var attributes: js.Dictionary[BufferAttribute] = js.native
   var groups: js.Array[GeometryGroup] = js.native
   var boundingBox: BoundingBox3D = js.native

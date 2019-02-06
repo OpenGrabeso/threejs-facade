@@ -9,7 +9,7 @@ organization := "net.gamatron"
 
 name := "threejs-facade"
 
-version := "0.0.86-0.0.11"
+version := "0.0.86-0.0.12"
 
 resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases") //add resolver
 

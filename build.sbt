@@ -9,7 +9,7 @@ organization := "net.gamatron"
 
 name := "threejs-facade"
 
-version := "0.0.86-0.0.12"
+version := "0.0.101-0.0.1"
 
 resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases") //add resolver
 
@@ -37,7 +37,7 @@ scalaSource in Compile := baseDirectory.value / "facade" / "src"
 
 libraryDependencies ++= Dependencies.facadeDependencies.value
 
-jsDependencies += "org.webjars.bower" % "three.js" % Versions.threeJs / "three.js" minified "three.min.js"
+jsDependencies += ProvidedJS / "three.js" minified "three.min.js" commonJSName "THREE"
 
 
 enablePlugins(ScalaJSPlugin)

@@ -305,7 +305,7 @@ object CompressedPixelFormat extends js.Object {
 
 @js.native
 @JSName("THREE.Camera")
-class Camera extends Object3D {
+class Camera(var near: Double = js.native, var far: Double = js.native) extends Object3D {
   var matrixWorldInverse: Matrix4 = js.native
   var projectionMatrix: Matrix4 = js.native
   override def lookAt(vector: Vector3): Unit = js.native
@@ -324,7 +324,7 @@ class CubeCamera(near: Double = js.native, far: Double = js.native, cubeResoluti
 @JSName("THREE.OrthographicCamera")
 class OrthographicCamera(
   var left: Double, var right: Double, var top: Double, var bottom: Double,
-  var near: Double = js.native, var far: Double = js.native
+  near: Double = js.native, far: Double = js.native
 ) extends Camera {
   var zoom: Double = js.native
   def updateProjectionMatrix(): Unit = js.native
@@ -334,7 +334,7 @@ class OrthographicCamera(
 
 @js.native
 @JSName("THREE.PerspectiveCamera")
-class PerspectiveCamera(var fov: Double = js.native, var aspect: Double = js.native, var near: Double = js.native, var far: Double = js.native) extends Camera {
+class PerspectiveCamera(var fov: Double = js.native, var aspect: Double = js.native, near: Double = js.native, far: Double = js.native) extends Camera {
   def setLens(focalLength: Double, frameHeight: Double = js.native): Unit = js.native
   def setViewOffset(fullWidth: Double, fullHeight: Double, x: Double, y: Double, width: Double, height: Double): Unit = js.native
   def updateProjectionMatrix(): Unit = js.native

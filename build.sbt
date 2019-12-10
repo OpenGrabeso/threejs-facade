@@ -1,4 +1,4 @@
-lazy val crossVersions = Seq("2.11.8", "2.12.1")
+lazy val crossVersions = Seq("2.11.12", "2.12.10")
 
 scalaVersion := Versions.scala
 
@@ -9,7 +9,7 @@ organization := "net.gamatron"
 
 name := "threejs-facade"
 
-version := "0.0.101-0.0.2"
+version := "0.0.101-0.0.3"
 
 resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases") //add resolver
 

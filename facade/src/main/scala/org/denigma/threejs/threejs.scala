@@ -9,7 +9,9 @@ import scalajs.js.typedarray._
 
 @js.native
 trait WebGLRenderingContext extends js.Object
+
 @js.native
+@JSGlobal("THREE")
 object THREE extends js.Object {
   var REVISION: String = js.native
   var CullFaceNone: CullFace = js.native
@@ -105,7 +107,7 @@ sealed trait CullFace extends js.Object {
 }
 
 @js.native
-@JSName("THREE.CullFace")
+@JSGlobal("THREE.CullFace")
 object CullFace extends js.Object {
   @JSBracketAccess
   def apply(value: CullFace): String = js.native
@@ -116,7 +118,7 @@ sealed trait FrontFaceDirection extends js.Object {
 }
 
 @js.native
-@JSName("THREE.FrontFaceDirection")
+@JSGlobal("THREE.FrontFaceDirection")
 object FrontFaceDirection extends js.Object {
   @JSBracketAccess
   def apply(value: FrontFaceDirection): String = js.native
@@ -127,7 +129,7 @@ sealed trait ShadowMapType extends js.Object {
 }
 
 @js.native
-@JSName("THREE.ShadowMapType")
+@JSGlobal("THREE.ShadowMapType")
 object ShadowMapType extends js.Object {
   @JSBracketAccess
   def apply(value: ShadowMapType): String = js.native
@@ -138,7 +140,7 @@ sealed trait Side extends js.Object {
 }
 
 @js.native
-@JSName("THREE.Side")
+@JSGlobal("THREE.Side")
 object Side extends js.Object {
   @JSBracketAccess
   def apply(value: Side): String = js.native
@@ -149,7 +151,7 @@ sealed trait Shading extends js.Object {
 }
 
 @js.native
-@JSName("THREE.Shading")
+@JSGlobal("THREE.Shading")
 object Shading extends js.Object {
   @JSBracketAccess
   def apply(value: Shading): String = js.native
@@ -160,7 +162,7 @@ sealed trait Colors extends js.Object {
 }
 
 @js.native
-@JSName("THREE.Colors")
+@JSGlobal("THREE.Colors")
 object Colors extends js.Object {
   @JSBracketAccess
   def apply(value: Colors): String = js.native
@@ -171,7 +173,7 @@ sealed trait Blending extends js.Object {
 }
 
 @js.native
-@JSName("THREE.Blending")
+@JSGlobal("THREE.Blending")
 object Blending extends js.Object {
   @JSBracketAccess
   def apply(value: Blending): String = js.native
@@ -182,7 +184,7 @@ sealed trait BlendingEquation extends js.Object {
 }
 
 @js.native
-@JSName("THREE.BlendingEquation")
+@JSGlobal("THREE.BlendingEquation")
 object BlendingEquation extends js.Object {
   @JSBracketAccess
   def apply(value: BlendingEquation): String = js.native
@@ -193,7 +195,7 @@ sealed trait BlendingDstFactor extends js.Object {
 }
 
 @js.native
-@JSName("THREE.BlendingDstFactor")
+@JSGlobal("THREE.BlendingDstFactor")
 object BlendingDstFactor extends js.Object {
   @JSBracketAccess
   def apply(value: BlendingDstFactor): String = js.native
@@ -204,7 +206,7 @@ sealed trait BlendingSrcFactor extends js.Object {
 }
 
 @js.native
-@JSName("THREE.BlendingSrcFactor")
+@JSGlobal("THREE.BlendingSrcFactor")
 object BlendingSrcFactor extends js.Object {
   @JSBracketAccess
   def apply(value: BlendingSrcFactor): String = js.native
@@ -215,7 +217,7 @@ sealed trait Combine extends js.Object {
 }
 
 @js.native
-@JSName("THREE.Combine")
+@JSGlobal("THREE.Combine")
 object Combine extends js.Object {
   @JSBracketAccess
   def apply(value: Combine): String = js.native
@@ -226,7 +228,7 @@ sealed trait Mapping extends js.Object {
 }
 
 @js.native
-@JSName("THREE.Mapping")
+@JSGlobal("THREE.Mapping")
 object Mapping extends js.Object {
   @JSBracketAccess
   def apply(value: Mapping): String = js.native
@@ -242,7 +244,7 @@ sealed trait Wrapping extends js.Object {
 }
 
 @js.native
-@JSName("THREE.Wrapping")
+@JSGlobal("THREE.Wrapping")
 object Wrapping extends js.Object {
   @JSBracketAccess
   def apply(value: Wrapping): String = js.native
@@ -253,7 +255,7 @@ sealed trait TextureFilter extends js.Object {
 }
 
 @js.native
-@JSName("THREE.TextureFilter")
+@JSGlobal("THREE.TextureFilter")
 object TextureFilter extends js.Object {
   @JSBracketAccess
   def apply(value: TextureFilter): String = js.native
@@ -264,7 +266,7 @@ sealed trait TextureDataType extends js.Object {
 }
 
 @js.native
-@JSName("THREE.TextureDataType")
+@JSGlobal("THREE.TextureDataType")
 object TextureDataType extends js.Object {
   @JSBracketAccess
   def apply(value: TextureDataType): String = js.native
@@ -275,7 +277,7 @@ sealed trait PixelType extends js.Object {
 }
 
 @js.native
-@JSName("THREE.PixelType")
+@JSGlobal("THREE.PixelType")
 object PixelType extends js.Object {
   @JSBracketAccess
   def apply(value: PixelType): String = js.native
@@ -286,7 +288,7 @@ sealed trait PixelFormat extends js.Object {
 }
 
 @js.native
-@JSName("THREE.PixelFormat")
+@JSGlobal("THREE.PixelFormat")
 object PixelFormat extends js.Object {
   @JSBracketAccess
   def apply(value: PixelFormat): String = js.native
@@ -297,14 +299,14 @@ sealed trait CompressedPixelFormat extends js.Object {
 }
 
 @js.native
-@JSName("THREE.CompressedPixelFormat")
+@JSGlobal("THREE.CompressedPixelFormat")
 object CompressedPixelFormat extends js.Object {
   @JSBracketAccess
   def apply(value: CompressedPixelFormat): String = js.native
 }
 
 @js.native
-@JSName("THREE.Camera")
+@JSGlobal("THREE.Camera")
 class Camera(var near: Double = js.native, var far: Double = js.native) extends Object3D {
   var matrixWorldInverse: Matrix4 = js.native
   var projectionMatrix: Matrix4 = js.native
@@ -314,14 +316,14 @@ class Camera(var near: Double = js.native, var far: Double = js.native) extends 
 }
 
 @js.native
-@JSName("THREE.CubeCamera")
+@JSGlobal("THREE.CubeCamera")
 class CubeCamera(near: Double = js.native, far: Double = js.native, cubeResolution: Double = js.native) extends Object3D {
   var renderTarget: WebGLRenderTargetCube = js.native
   def updateCubeMap(renderer: Renderer, scene: Scene): Unit = js.native
 }
 
 @js.native
-@JSName("THREE.OrthographicCamera")
+@JSGlobal("THREE.OrthographicCamera")
 class OrthographicCamera(
   var left: Double, var right: Double, var top: Double, var bottom: Double,
   near: Double = js.native, far: Double = js.native
@@ -333,7 +335,7 @@ class OrthographicCamera(
 }
 
 @js.native
-@JSName("THREE.PerspectiveCamera")
+@JSGlobal("THREE.PerspectiveCamera")
 class PerspectiveCamera(var fov: Double = js.native, var aspect: Double = js.native, near: Double = js.native, far: Double = js.native) extends Camera {
   def setLens(focalLength: Double, frameHeight: Double = js.native): Unit = js.native
   def setViewOffset(fullWidth: Double, fullHeight: Double, x: Double, y: Double, width: Double, height: Double): Unit = js.native
@@ -343,7 +345,7 @@ class PerspectiveCamera(var fov: Double = js.native, var aspect: Double = js.nat
 }
 
 @js.native
-@JSName("THREE.BufferAttribute")
+@JSGlobal("THREE.BufferAttribute")
 class BufferAttribute(var array: js.Any, var itemSize: Double) extends js.Object {
   var count: Int = js.native
   def set(value: Double): BufferAttribute = js.native
@@ -356,45 +358,47 @@ class BufferAttribute(var array: js.Any, var itemSize: Double) extends js.Object
 }
 
 @js.native
-@JSName("THREE.Int8BufferAttribute")
+@JSGlobal("THREE.Int8BufferAttribute")
 class Int8BufferAttribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
 
 @js.native
-@JSName("THREE.Uint8BufferAttribute")
+@JSGlobal("THREE.Uint8BufferAttribute")
 class Uint8BufferAttribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
 
 @js.native
-@JSName("THREE.Uint8ClampedBufferAttribute")
+@JSGlobal("THREE.Uint8ClampedBufferAttribute")
 class Uint8ClampedBufferAttribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
 
 @js.native
-@JSName("THREE.Int16BufferAttribute")
+@JSGlobal("THREE.Int16BufferAttribute")
 class Int16BufferAttribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
 
 @js.native
-@JSName("THREE.Uint16BufferAttribute")
+@JSGlobal("THREE.Uint16BufferAttribute")
 class Uint16BufferAttribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
 
 @js.native
-@JSName("THREE.Int32BufferAttribute")
+@JSGlobal("THREE.Int32BufferAttribute")
 class Int32BufferAttribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
 
 @js.native
-@JSName("THREE.Uint32BufferAttribute")
+@JSGlobal("THREE.Uint32BufferAttribute")
 class Uint32BufferAttribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
 
 @js.native
-@JSName("THREE.Float32BufferAttribute")
+@JSGlobal("THREE.Float32BufferAttribute")
 class Float32BufferAttribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
 
 @js.native
-@JSName("THREE.Float64BufferAttribute")
+@JSGlobal("THREE.Float64BufferAttribute")
 class Float64BufferAttribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
 
 @js.native
+@JSGlobal("THREE.GeometryGroup")
 class GeometryGroup(var start: Double, var count: Double, var materialIndex: Double) extends js.Object
 
 @js.native
+@JSGlobal("THREE.AGeometry")
 class AGeometry extends js.Object with EventDispatcher {
   override def clone(): AGeometry = js.native
   def copy(geometry: AGeometry): AGeometry = js.native
@@ -402,7 +406,7 @@ class AGeometry extends js.Object with EventDispatcher {
 }
 
 @js.native
-@JSName("THREE.BufferGeometry")
+@JSGlobal("THREE.BufferGeometry")
 class BufferGeometry extends AGeometry {
   var name: String = js.native
   var attributes: js.Dictionary[BufferAttribute] = js.native
@@ -439,7 +443,7 @@ class BufferGeometry extends AGeometry {
 }
 
 @js.native
-@JSName("THREE.Clock")
+@JSGlobal("THREE.Clock")
 class Clock(var autoStart: Boolean = js.native) extends js.Object {
   var startTime: Double = js.native
   var oldTime: Double = js.native
@@ -461,7 +465,7 @@ trait EventDispatcher extends js.Object {
 }
 
 @js.native
-@JSName("THREE.Face3")
+@JSGlobal("THREE.Face3")
 class Face3(
   var a: Double, var b: Double, var c: Double,
   var vertexNormals: js.Array[Vector3] = js.native, var vertexColors: js.Array[Color] = js.native, var materialIndex: Double  = js.native
@@ -503,7 +507,7 @@ trait BoundingSphere extends js.Object {
 }
 
 @js.native
-@JSName("THREE.Geometry")
+@JSGlobal("THREE.Geometry")
 class Geometry extends AGeometry {
   var id: Double = js.native
   var uuid: String = js.native
@@ -549,7 +553,7 @@ class Geometry extends AGeometry {
 }
 
 @js.native
-@JSName("THREE.Object3D")
+@JSGlobal("THREE.Object3D")
 class Object3D extends js.Object with EventDispatcher {
   var id: Double = js.native
   var uuid: String = js.native
@@ -611,13 +615,13 @@ class Object3D extends js.Object with EventDispatcher {
 }
 
 @js.native
-@JSName("THREE.Object3D")
+@JSGlobal("THREE.Object3D")
 object Object3D extends js.Object {
   var DefaultUp: Vector3 = js.native
 }
 
 @js.native
-@JSName("THREE.Group")
+@JSGlobal("THREE.Group")
 class Group extends Object3D
 
 @js.native
@@ -638,7 +642,7 @@ trait RaycasterParameters extends js.Object {
 }
 
 @js.native
-@JSName("THREE.Raycaster")
+@JSGlobal("THREE.Raycaster")
 class Raycaster(origin: Vector3 = js.native, direction: Vector3 = js.native, var near: Double = js.native, var far: Double = js.native) extends js.Object {
   var ray: Ray = js.native
   var params: RaycasterParameters = js.native
@@ -652,7 +656,7 @@ class Raycaster(origin: Vector3 = js.native, direction: Vector3 = js.native, var
 }
 
 @js.native
-@JSName("THREE.LightShadow")
+@JSGlobal("THREE.LightShadow")
 class LightShadow(var camera: Camera = js.native) extends js.Any {
   var bias: Double = js.native
   var radius: Double = js.native
@@ -665,7 +669,7 @@ class LightShadow(var camera: Camera = js.native) extends js.Any {
 }
 
 @js.native
-@JSName("THREE.Light")
+@JSGlobal("THREE.Light")
 class Light(var color: Double = js.native, intensity: Double = js.native) extends Object3D {
 
   var shadow: LightShadow = js.native
@@ -675,13 +679,13 @@ class Light(var color: Double = js.native, intensity: Double = js.native) extend
 }
 
 @js.native
-@JSName("THREE.AmbientLight")
+@JSGlobal("THREE.AmbientLight")
 class AmbientLight(color: Double, intensity: Double = js.native) extends Light(color, intensity) {
   override def clone(): AmbientLight = js.native
 }
 
 @js.native
-@JSName("THREE.AreaLight")
+@JSGlobal("THREE.AreaLight")
 class AreaLight(color: Double = js.native, intensity: Double = js.native) extends Light(color, intensity) {
   var normal: Vector3 = js.native
   var right: Vector3 = js.native
@@ -693,7 +697,7 @@ class AreaLight(color: Double = js.native, intensity: Double = js.native) extend
 }
 
 @js.native
-@JSName("THREE.DirectionalLight")
+@JSGlobal("THREE.DirectionalLight")
 class DirectionalLight(color: Double = js.native, intensity: Double = js.native) extends Light(color, intensity) {
   var target: Object3D = js.native
 
@@ -701,19 +705,19 @@ class DirectionalLight(color: Double = js.native, intensity: Double = js.native)
 }
 
 @js.native
-@JSName("THREE.HemisphereLight")
+@JSGlobal("THREE.HemisphereLight")
 class HemisphereLight(var skyColor: Double = js.native, var groundColor: Double = js.native, intensity: Double = js.native) extends Light(skyColor, intensity) {
   override def clone(): HemisphereLight = js.native
 }
 
 @js.native
-@JSName("THREE.PointLight")
+@JSGlobal("THREE.PointLight")
 class PointLight(color: Double = js.native, intensity: Double = js.native, var distance: Double = js.native) extends Light(color, intensity) {
   override def clone(): PointLight = js.native
 }
 
 @js.native
-@JSName("THREE.SpotLight")
+@JSGlobal("THREE.SpotLight")
 class SpotLight(
   color: Double = js.native, intensity: Double = js.native, var distance: Double = js.native, var angle: Double = js.native, var exponent: Double = js.native
 ) extends Light(color,intensity) {
@@ -742,7 +746,7 @@ trait Progress extends js.Object {
 }
 
 @js.native
-@JSName("THREE.Loader")
+@JSGlobal("THREE.Loader")
 class Loader(var showStatus: Boolean = js.native) extends js.Object {
   var statusDomElement: HTMLElement = js.native
   var onLoadStart: js.Function0[Unit] = js.native
@@ -758,7 +762,7 @@ class Loader(var showStatus: Boolean = js.native) extends js.Object {
 }
 
 @js.native
-@JSName("THREE.Loader")
+@JSGlobal("THREE.Loader")
 object Loader extends js.Object {
   var Handlers: LoaderHandler = js.native
 }
@@ -771,7 +775,7 @@ trait LoaderHandler extends js.Object {
 }
 
 @js.native
-@JSName("THREE.BufferGeometryLoader")
+@JSGlobal("THREE.BufferGeometryLoader")
 class BufferGeometryLoader(manager: LoadingManager = js.native) extends js.Object {
   def load(url: String, onLoad: js.Function1[BufferGeometry, Unit], onProgress: js.Function1[js.Any, Unit] = js.native, onError: js.Function1[js.Any, Unit] = js.native): Unit = js.native
   def setCrossOrigin(crossOrigin: String): Unit = js.native
@@ -779,7 +783,7 @@ class BufferGeometryLoader(manager: LoadingManager = js.native) extends js.Objec
 }
 
 @js.native
-@JSName("THREE.Cache")
+@JSGlobal("THREE.Cache")
 class Cache extends js.Object {
   var files: js.Array[js.Any] = js.native
   def add(key: String, file: js.Any): Unit = js.native
@@ -789,7 +793,7 @@ class Cache extends js.Object {
 }
 
 @js.native
-@JSName("THREE.ImageLoader")
+@JSGlobal("THREE.ImageLoader")
 class ImageLoader(manager: LoadingManager = js.native) extends js.Object {
   var crossOrigin: String = js.native
   def load(url: String, onLoad: js.Function1[HTMLImageElement, Unit] = js.native, onProgress: js.Function1[js.Any, Unit] = js.native, onError: js.Function1[js.Any, Unit] = js.native): HTMLImageElement = js.native
@@ -797,7 +801,7 @@ class ImageLoader(manager: LoadingManager = js.native) extends js.Object {
 }
 
 @js.native
-@JSName("THREE.JSONLoader")
+@JSGlobal("THREE.JSONLoader")
 class JSONLoader(showStatus: Boolean = js.native) extends Loader {
   var withCredentials: Boolean = js.native
   def load(url: String, callback: js.Function2[JSonLoaderResultGeometry, js.Array[Material], Unit], texturePath: String = js.native): Unit = js.native
@@ -811,7 +815,7 @@ trait JSonLoaderResultGeometry extends Geometry {
 }
 
 @js.native
-@JSName("THREE.LoadingManager")
+@JSGlobal("THREE.LoadingManager")
 class LoadingManager(
   var onLoad: js.Function0[Unit] = js.native, var onProgress: js.Function3[String, Double, Double, Unit] = js.native, var onError: js.Function0[Unit] = js.native
 ) extends js.Object {
@@ -820,7 +824,7 @@ class LoadingManager(
 }
 
 @js.native
-@JSName("THREE.MaterialLoader")
+@JSGlobal("THREE.MaterialLoader")
 class MaterialLoader(manager: LoadingManager = js.native) extends js.Object {
   def load(url: String, onLoad: js.Function1[Material, Unit]): Unit = js.native
   def setCrossOrigin(crossOrigin: String): Unit = js.native
@@ -828,7 +832,7 @@ class MaterialLoader(manager: LoadingManager = js.native) extends js.Object {
 }
 
 @js.native
-@JSName("THREE.ObjectLoader")
+@JSGlobal("THREE.ObjectLoader")
 class ObjectLoader(manager: LoadingManager = js.native) extends js.Object {
   def load(url: String, onLoad: js.Function1[Object3D, Unit]): Unit = js.native
   def setCrossOrigin(crossOrigin: String): Unit = js.native
@@ -839,7 +843,7 @@ class ObjectLoader(manager: LoadingManager = js.native) extends js.Object {
 }
 
 @js.native
-@JSName("THREE.TextureLoader")
+@JSGlobal("THREE.TextureLoader")
 class TextureLoader(manager: LoadingManager = js.native) extends js.Object {
   var crossOrigin: String = js.native
   def load(url: String, onLoad: js.Function1[Texture, Unit]): Unit = js.native
@@ -847,7 +851,7 @@ class TextureLoader(manager: LoadingManager = js.native) extends js.Object {
 }
 
 @js.native
-@JSName("THREE.XHRLoader")
+@JSGlobal("THREE.XHRLoader")
 class XHRLoader(manager: LoadingManager = js.native) extends js.Object {
   var responseType: String = js.native
   var crossOrigin: String = js.native
@@ -878,12 +882,15 @@ trait MaterialParameters extends js.Object {
 }
 
 @js.native
-@JSName("THREE.Material")
+@JSGlobal("THREE.Material")
 class Material extends js.Object with EventDispatcher {
   var id: Double = js.native
   var uuid: String = js.native
   var name: String = js.native
   var side: Side = js.native
+  var shadowSide: Side = js.native
+  var shadowOffsetUnits: Double = js.native // not implemented yet in public three.js as of 101
+  var shadowOffsetFactor: Double = js.native
   var opacity: Double = js.native
   var transparent: Boolean = js.native
   var blending: Blending = js.native
@@ -917,7 +924,7 @@ trait LineBasicMaterialParameters extends MaterialParameters {
 }
 
 @js.native
-@JSName("THREE.LineBasicMaterial")
+@JSGlobal("THREE.LineBasicMaterial")
 class LineBasicMaterial(parameters: LineBasicMaterialParameters = js.native) extends Material {
   var color: Color = js.native
   var linewidth: Double = js.native
@@ -940,7 +947,7 @@ trait LineDashedMaterialParameters extends MaterialParameters {
 }
 
 @js.native
-@JSName("THREE.LineDashedMaterial")
+@JSGlobal("THREE.LineDashedMaterial")
 class LineDashedMaterial(parameters: LineDashedMaterialParameters = js.native) extends Material {
   var color: Color = js.native
   var linewidth: Double = js.native
@@ -975,7 +982,7 @@ trait MeshBasicMaterialParameters extends MaterialParameters {
 }
 
 @js.native
-@JSName("THREE.MeshBasicMaterial")
+@JSGlobal("THREE.MeshBasicMaterial")
 class MeshBasicMaterial(parameters: MeshBasicMaterialParameters = js.native) extends Material {
   var color: Color = js.native
   var map: Texture = js.native
@@ -1005,7 +1012,7 @@ trait MeshDepthMaterialParameters extends MaterialParameters {
 }
 
 @js.native
-@JSName("THREE.MeshDepthMaterial")
+@JSGlobal("THREE.MeshDepthMaterial")
 class MeshDepthMaterial(parameters: MeshDepthMaterialParameters = js.native) extends Material {
   var wireframe: Boolean = js.native
   var wireframeLinewidth: Double = js.native
@@ -1013,7 +1020,7 @@ class MeshDepthMaterial(parameters: MeshDepthMaterialParameters = js.native) ext
 }
 
 @js.native
-@JSName("THREE.MeshFaceMaterial")
+@JSGlobal("THREE.MeshFaceMaterial")
 class MeshFaceMaterial(var materials: js.Array[Material] = js.native) extends Material {
   override def clone(): MeshFaceMaterial = js.native
 }
@@ -1046,7 +1053,7 @@ trait MeshLambertMaterialParameters extends MaterialParameters {
 }
 
 @js.native
-@JSName("THREE.MeshLambertMaterial")
+@JSGlobal("THREE.MeshLambertMaterial")
 class MeshLambertMaterial(parameters: MeshLambertMaterialParameters = js.native) extends Material {
   var color: Color = js.native
   var ambient: Color = js.native
@@ -1083,7 +1090,7 @@ trait MeshNormalMaterialParameters extends MaterialParameters {
 }
 
 @js.native
-@JSName("THREE.MeshNormalMaterial")
+@JSGlobal("THREE.MeshNormalMaterial")
 class MeshNormalMaterial(parameters: MeshNormalMaterialParameters = js.native) extends Material {
   var shading: Shading = js.native
   var wireframe: Boolean = js.native
@@ -1127,7 +1134,7 @@ trait MeshPhongMaterialParameters extends MaterialParameters {
 }
 
 @js.native
-@JSName("THREE.MeshPhongMaterial")
+@JSGlobal("THREE.MeshPhongMaterial")
 class MeshPhongMaterial(parameters: MeshPhongMaterialParameters = js.native) extends Material {
   var color: Color = js.native
   var ambient: Color = js.native
@@ -1135,6 +1142,77 @@ class MeshPhongMaterial(parameters: MeshPhongMaterialParameters = js.native) ext
   var specular: Color = js.native
   var shininess: Double = js.native
   var metal: Boolean = js.native
+  var wrapAround: Boolean = js.native
+  var wrapRGB: Vector3 = js.native
+  var map: Texture = js.native
+  var lightMap: Texture = js.native
+  var bumpMap: Texture = js.native
+  var bumpScale: Double = js.native
+  var normalMap: Texture = js.native
+  var normalScale: Vector2 = js.native
+  var specularMap: Texture = js.native
+  var alphaMap: Texture = js.native
+  var envMap: Texture = js.native
+  var combine: Combine = js.native
+  var reflectivity: Double = js.native
+  var refractionRatio: Double = js.native
+  var fog: Boolean = js.native
+  var shading: Shading = js.native
+  var wireframe: Boolean = js.native
+  var wireframeLinewidth: Double = js.native
+  var wireframeLinecap: String = js.native
+  var wireframeLinejoin: String = js.native
+  var vertexColors: Colors = js.native
+  var skinning: Boolean = js.native
+  var morphTargets: Boolean = js.native
+  var morphNormals: Boolean = js.native
+  override def clone(): MeshPhongMaterial = js.native
+}
+
+@js.native
+trait MeshStandardMaterialParameters extends MaterialParameters {
+  var color: Double = js.native
+  var ambient: Double = js.native
+  var emissive: Double = js.native
+  var specular: Double = js.native
+  var shininess: Double = js.native
+  var metal: Boolean = js.native
+  var wrapAround: Boolean = js.native
+  var wrapRGB: Vector3 = js.native
+  var map: Texture = js.native
+  var lightMap: Texture = js.native
+  var bumpMap: Texture = js.native
+  var bumpScale: Double = js.native
+  var normalMap: Texture = js.native
+  var normalScale: Vector2 = js.native
+  var specularMap: Texture = js.native
+  var alphaMap: Texture = js.native
+  var envMap: Texture = js.native
+  var combine: Combine = js.native
+  var reflectivity: Double = js.native
+  var refractionRatio: Double = js.native
+  var fog: Boolean = js.native
+  var shading: Shading = js.native
+  var wireframe: Boolean = js.native
+  var wireframeLinewidth: Double = js.native
+  var wireframeLinecap: String = js.native
+  var wireframeLinejoin: String = js.native
+  var vertexColors: Colors = js.native
+  var skinning: Boolean = js.native
+  var morphTargets: Boolean = js.native
+  var morphNormals: Boolean = js.native
+}
+
+@js.native
+@JSGlobal("THREE.MeshStandardMaterial")
+class MeshStandardMaterial(parameters: MeshStandardMaterialParameters = js.native) extends Material {
+  // TODO: check against real material properties
+  var color: Color = js.native
+  var ambient: Color = js.native
+  var emissive: Color = js.native
+  var specular: Color = js.native
+  var roughness: Double = js.native
+  var metalness: Double = js.native
   var wrapAround: Boolean = js.native
   var wrapRGB: Vector3 = js.native
   var map: Texture = js.native
@@ -1173,7 +1251,7 @@ trait PointCloudMaterialParameters extends MaterialParameters {
 }
 
 @js.native
-@JSName("THREE.PointCloudMaterial")
+@JSGlobal("THREE.PointCloudMaterial")
 class PointCloudMaterial(parameters: PointCloudMaterialParameters = js.native) extends Material {
   var color: Color = js.native
   var map: Texture = js.native
@@ -1185,15 +1263,15 @@ class PointCloudMaterial(parameters: PointCloudMaterialParameters = js.native) e
 }
 
 @js.native
-@JSName("THREE.ParticleBasicMaterial")
+@JSGlobal("THREE.ParticleBasicMaterial")
 class ParticleBasicMaterial extends PointCloudMaterial
 
 @js.native
-@JSName("THREE.ParticleSystemMaterial")
+@JSGlobal("THREE.ParticleSystemMaterial")
 class ParticleSystemMaterial extends PointCloudMaterial
 
 @js.native
-@JSName("THREE.RawShaderMaterial")
+@JSGlobal("THREE.RawShaderMaterial")
 class RawShaderMaterial(parameters: ShaderMaterialParameters = js.native) extends ShaderMaterial
 
 @js.native
@@ -1216,7 +1294,7 @@ trait ShaderMaterialParameters extends MaterialParameters {
 }
 
 @js.native
-@JSName("THREE.ShaderMaterial")
+@JSGlobal("THREE.ShaderMaterial")
 class ShaderMaterial(parameters: ShaderMaterialParameters = js.native) extends Material {
   var defines: js.Any = js.native
   var uniforms: js.Any = js.native
@@ -1242,7 +1320,7 @@ trait SpriteCanvasMaterialParameters extends MaterialParameters {
 }
 
 @js.native
-@JSName("THREE.SpriteCanvasMaterial")
+@JSGlobal("THREE.SpriteCanvasMaterial")
 class SpriteCanvasMaterial(parameters: SpriteCanvasMaterialParameters = js.native) extends Material {
   var color: Color = js.native
   def program(context: js.Any, color: Color): Unit = js.native
@@ -1258,7 +1336,7 @@ trait SpriteMaterialParameters extends MaterialParameters {
 }
 
 @js.native
-@JSName("THREE.SpriteMaterial")
+@JSGlobal("THREE.SpriteMaterial")
 class SpriteMaterial(parameters: SpriteMaterialParameters = js.native) extends Material {
   var color: Color = js.native
   var map: Texture = js.native
@@ -1268,7 +1346,7 @@ class SpriteMaterial(parameters: SpriteMaterialParameters = js.native) extends M
 }
 
 @js.native
-@JSName("THREE.Box2")
+@JSGlobal("THREE.Box2")
 class Box2(var min: Vector2 = js.native, var max: Vector2 = js.native) extends js.Object with HasJSEquals[Box2] {
   def set(min: Vector2, max: Vector2): Box2 = js.native
   def setFromPoints(points: js.Array[Vector2]): Box2 = js.native
@@ -1294,7 +1372,7 @@ class Box2(var min: Vector2 = js.native, var max: Vector2 = js.native) extends j
 }
 
 @js.native
-@JSName("THREE.Box3")
+@JSGlobal("THREE.Box3")
 class Box3(var min: Vector3 = js.native, var max: Vector3 = js.native) extends js.Object with HasJSEquals[Box3] {
   def set(min: Vector3, max: Vector3): Box3 = js.native
   def setFromPoints(points: js.Array[Vector3]): Box3 = js.native
@@ -1330,7 +1408,7 @@ trait HSL extends js.Object {
 }
 
 @js.native
-@JSName("THREE.Color")
+@JSGlobal("THREE.Color")
 class Color(color: Color = js.native) extends js.Object with HasJSEquals[Color] {
   def this(r: Double, g: Double, b: Double) = this()
   def this(hex: Double) = this()
@@ -1364,12 +1442,12 @@ class Color(color: Color = js.native) extends js.Object with HasJSEquals[Color] 
 }
 
 @js.native
-@JSName("THREE.ColorKeywords")
+@JSGlobal("THREE.ColorKeywords")
 class ColorKeywords extends js.Object {
 }
 
 @js.native
-@JSName("THREE.ColorKeywords")
+@JSGlobal("THREE.ColorKeywords")
 object ColorKeywords extends js.Object {
   var aliceblue: Double = js.native
   var antiquewhite: Double = js.native
@@ -1521,7 +1599,7 @@ object ColorKeywords extends js.Object {
 }
 
 @js.native
-@JSName("THREE.Euler")
+@JSGlobal("THREE.Euler")
 class Euler(var x: Double = js.native, var y: Double = js.native, var z: Double = js.native, var order: String = js.native) extends js.Object with HasJSEquals[Euler] {
   def set(x: Double, y: Double, z: Double, order: String = js.native): Euler = js.native
   def copy(euler: Euler): Euler = js.native
@@ -1535,7 +1613,7 @@ class Euler(var x: Double = js.native, var y: Double = js.native, var z: Double 
 }
 
 @js.native
-@JSName("THREE.Frustum")
+@JSGlobal("THREE.Frustum")
 class Frustum(p0: Plane = js.native, p1: Plane = js.native, p2: Plane = js.native, p3: Plane = js.native, p4: Plane = js.native, p5: Plane = js.native) extends js.Object {
   var planes: js.Array[Plane] = js.native
   def set(p0: Double = js.native, p1: Double = js.native, p2: Double = js.native, p3: Double = js.native, p4: Double = js.native, p5: Double = js.native): Frustum = js.native
@@ -1549,7 +1627,7 @@ class Frustum(p0: Plane = js.native, p1: Plane = js.native, p2: Plane = js.nativ
 }
 
 @js.native
-@JSName("THREE.Line3")
+@JSGlobal("THREE.Line3")
 class Line3(var start: Vector3 = js.native, var end: Vector3 = js.native) extends js.Object with HasJSEquals[Line3] {
   def set(start: Vector3 = js.native, end: Vector3 = js.native): Line3 = js.native
   def copy(line: Line3): Line3 = js.native
@@ -1595,7 +1673,7 @@ trait Matrix extends js.Object {
 }
 
 @js.native
-@JSName("THREE.Matrix3")
+@JSGlobal("THREE.Matrix3")
 class Matrix3 extends Matrix {
 
   def set(n11: Double, n12: Double, n13: Double, n21: Double, n22: Double, n23: Double, n31: Double, n32: Double, n33: Double): Matrix3 = js.native
@@ -1616,7 +1694,7 @@ class Matrix3 extends Matrix {
 }
 
 @js.native
-@JSName("THREE.Matrix4")
+@JSGlobal("THREE.Matrix4")
 class Matrix4 extends Matrix {
   def set(n11: Double, n12: Double, n13: Double, n14: Double, n21: Double, n22: Double, n23: Double, n24: Double, n31: Double, n32: Double, n33: Double, n34: Double, n41: Double, n42: Double, n43: Double, n44: Double): Matrix4 = js.native
   override def identity(): Matrix4 = js.native
@@ -1656,7 +1734,7 @@ class Matrix4 extends Matrix {
 }
 
 @js.native
-@JSName("THREE.Plane")
+@JSGlobal("THREE.Plane")
 class Plane(var normal: Vector3 = js.native, var constant: Double = js.native) extends js.Object with HasJSEquals[Plane] {
   def set(normal: Vector3, constant: Double): Plane = js.native
   def setComponents(x: Double, y: Double, z: Double, w: Double): Plane = js.native
@@ -1678,7 +1756,7 @@ class Plane(var normal: Vector3 = js.native, var constant: Double = js.native) e
 }
 
 @js.native
-@JSName("THREE.Quaternion")
+@JSGlobal("THREE.Quaternion")
 class Quaternion(var x: Double = js.native, var y: Double = js.native, var z: Double = js.native, var w: Double = js.native) extends js.Object with HasJSEquals[Quaternion] {
   def set(x: Double, y: Double, z: Double, w: Double): Quaternion = js.native
   def copy(q: Quaternion): Quaternion = js.native
@@ -1703,13 +1781,13 @@ class Quaternion(var x: Double = js.native, var y: Double = js.native, var z: Do
 }
 
 @js.native
-@JSName("THREE.Quaternion")
+@JSGlobal("THREE.Quaternion")
 object Quaternion extends js.Object {
   def slerp(qa: Quaternion, qb: Quaternion, qm: Quaternion, t: Double): Quaternion = js.native
 }
 
 @js.native
-@JSName("THREE.Ray")
+@JSGlobal("THREE.Ray")
 class Ray(var origin: Vector3 = js.native, var direction: Vector3 = js.native) extends js.Object with HasJSEquals[Ray] {
   def set(origin: Vector3, direction: Vector3): Ray = js.native
   def copy(ray: Ray): Ray = js.native
@@ -1731,7 +1809,7 @@ class Ray(var origin: Vector3 = js.native, var direction: Vector3 = js.native) e
 }
 
 @js.native
-@JSName("THREE.Sphere")
+@JSGlobal("THREE.Sphere")
 class Sphere(var center: Vector3 = js.native, var radius: Double = js.native) extends js.Object with HasJSEquals[Sphere] {
   def set(center: Vector3, radius: Double): Sphere = js.native
   def setFromPoints(points: js.Array[Vector3], optionalCenter: Vector3 = js.native): Sphere = js.native
@@ -1755,7 +1833,7 @@ trait SplineControlPoint extends js.Object {
 }
 
 @js.native
-@JSName("THREE.Spline")
+@JSGlobal("THREE.Spline")
 class Spline(var points: js.Array[SplineControlPoint]) extends js.Object {
   def initFromArray(a: js.Array[js.Array[Double]]): Unit = js.native
   def getPoint(k: Double): SplineControlPoint = js.native
@@ -1765,7 +1843,7 @@ class Spline(var points: js.Array[SplineControlPoint]) extends js.Object {
 }
 
 @js.native
-@JSName("THREE.Triangle")
+@JSGlobal("THREE.Triangle")
 class Triangle(var a: Vector3 = js.native, var b: Vector3 = js.native, var c: Vector3 = js.native) extends js.Object with HasJSEquals[Triangle] {
   def set(a: Vector3, b: Vector3, c: Vector3): Triangle = js.native
   def setFromPointsAndIndices(points: js.Array[Vector3], i0: Double, i1: Double, i2: Double): Triangle = js.native
@@ -1780,7 +1858,7 @@ class Triangle(var a: Vector3 = js.native, var b: Vector3 = js.native, var c: Ve
 }
 
 @js.native
-@JSName("THREE.Triangle")
+@JSGlobal("THREE.Triangle")
 object Triangle extends js.Object {
   def normal(a: Vector3, b: Vector3, c: Vector3, optionalTarget: Vector3 = js.native): Vector3 = js.native
   def barycoordFromPoint(point: Vector3, a: Vector3, b: Vector3, c: Vector3, optionalTarget: Vector3): Vector3 = js.native
@@ -1813,7 +1891,7 @@ trait Vector extends js.Object {
 }
 
 @js.native
-@JSName("THREE.Vector2")
+@JSGlobal("THREE.Vector2")
 class Vector2(var x: Double = js.native, var y: Double = js.native) extends Vector with HasJSEquals[Vector2] {
   def set(x: Double, y: Double): Vector2 = js.native
   def setX(x: Double): Vector2 = js.native
@@ -1853,7 +1931,7 @@ class Vector2(var x: Double = js.native, var y: Double = js.native) extends Vect
 }
 
 @js.native
-@JSName("THREE.Vector3")
+@JSGlobal("THREE.Vector3")
 class Vector3(var x: Double = js.native, var y: Double = js.native, var z: Double = js.native) extends Vector with HasJSEquals[Vector3] {
   def set(x: Double, y: Double, z: Double): Vector3 = js.native
   def setX(x: Double): Vector3 = js.native
@@ -1915,7 +1993,7 @@ class Vector3(var x: Double = js.native, var y: Double = js.native, var z: Doubl
 }
 
 @js.native
-@JSName("THREE.Vector4")
+@JSGlobal("THREE.Vector4")
 class Vector4(var x: Double = js.native, var y: Double = js.native, var z: Double = js.native, var w: Double = js.native) extends Vector with HasJSEquals[Vector4] {
   def set(x: Double, y: Double, z: Double, w: Double): Vector4 = js.native
   def setX(x: Double): Vector4 = js.native
@@ -1957,7 +2035,7 @@ class Vector4(var x: Double = js.native, var y: Double = js.native, var z: Doubl
 }
 
 @js.native
-@JSName("THREE.Spherical")
+@JSGlobal("THREE.Spherical")
 class Spherical(var radius: Double = js.native, var phi: Double = js.native, var theta: Double = js.native) extends js.Object {
   def set(radius: Double, phi: Double, theta: Double): Spherical = js.native
   override def clone(): Spherical = js.native
@@ -1968,7 +2046,7 @@ class Spherical(var radius: Double = js.native, var phi: Double = js.native, var
 }
 
 @js.native
-@JSName("THREE.Bone")
+@JSGlobal("THREE.Bone")
 class Bone(var skin: SkinnedMesh) extends Object3D {
   var accumulatedRotWeight: Double = js.native
   var accumulatedPosWeight: Double = js.native
@@ -1977,7 +2055,7 @@ class Bone(var skin: SkinnedMesh) extends Object3D {
 }
 
 @js.native
-@JSName("THREE.Line")
+@JSGlobal("THREE.Line")
 class Line(geometry: Geometry = js.native, var material: LineBasicMaterial = js.native, var `type`: Double = js.native) extends Object3D {
   override def raycast(raycaster: Raycaster, intersects: js.Any): Unit = js.native
   override def clone(): Line = js.native
@@ -1988,17 +2066,20 @@ sealed trait LineType extends js.Object {
 }
 
 @js.native
-@JSName("THREE.LineType")
+@JSGlobal("THREE.LineType")
 object LineType extends js.Object {
   @JSBracketAccess
   def apply(value: LineType): String = js.native
 }
 
 @js.native
-class LODLevel(var distance: Double, var `object`: Object3D) extends js.Object
+trait LODLevel extends js.Object {
+  var distance: Double = js.native
+  var `object`: Object3D = js.native
+}
 
 @js.native
-@JSName("THREE.LOD")
+@JSGlobal("THREE.LOD")
 class LOD extends Object3D {
   var levels: js.Array[LODLevel] = js.native
   def addLevel(`object`: Object3D, distance: Double = js.native): Unit = js.native
@@ -2010,7 +2091,7 @@ class LOD extends Object3D {
 }
 
 @js.native
-@JSName("THREE.Mesh")
+@JSGlobal("THREE.Mesh")
 class Mesh(geometry: AGeometry = js.native, var material: Material = js.native) extends Object3D {
   def updateMorphTargets(): Unit = js.native
   def getMorphTargetIndexByName(name: String): Double = js.native
@@ -2019,7 +2100,7 @@ class Mesh(geometry: AGeometry = js.native, var material: Material = js.native) 
 }
 
 @js.native
-@JSName("THREE.MorphAnimMesh")
+@JSGlobal("THREE.MorphAnimMesh")
 class MorphAnimMesh(geometry: Geometry = js.native, material: MeshBasicMaterial = js.native) extends Mesh(geometry, material) {
   var duration: Double = js.native
   var mirroredLoop: Boolean = js.native
@@ -2043,7 +2124,7 @@ class MorphAnimMesh(geometry: Geometry = js.native, material: MeshBasicMaterial 
 }
 
 @js.native
-@JSName("THREE.PointCloud")
+@JSGlobal("THREE.PointCloud")
 class PointCloud(geometry: Geometry, var material: PointCloudMaterial = js.native) extends Object3D {
   var sortParticles: Boolean = js.native
   override def raycast(raycaster: Raycaster, intersects: js.Any): Unit = js.native
@@ -2052,7 +2133,7 @@ class PointCloud(geometry: Geometry, var material: PointCloudMaterial = js.nativ
 
 
 @js.native
-@JSName("THREE.Skeleton")
+@JSGlobal("THREE.Skeleton")
 class Skeleton(var bones: js.Array[Bone], var boneInverses: js.Array[Matrix4] = js.native, var useVertexTexture: Boolean = js.native) extends js.Object {
   var identityMatrix: Matrix4 = js.native
   var boneTextureWidth: Double = js.native
@@ -2065,7 +2146,7 @@ class Skeleton(var bones: js.Array[Bone], var boneInverses: js.Array[Matrix4] = 
 }
 
 @js.native
-@JSName("THREE.SkinnedMesh")
+@JSGlobal("THREE.SkinnedMesh")
 class SkinnedMesh(geometry: Geometry = js.native, material: MeshBasicMaterial = js.native, useVertexTexture: Boolean = js.native) extends Mesh(geometry, material) {
   var bindMode: String = js.native
   var bindMatrix: Matrix4 = js.native
@@ -2079,7 +2160,7 @@ class SkinnedMesh(geometry: Geometry = js.native, material: MeshBasicMaterial = 
 }
 
 @js.native
-@JSName("THREE.Sprite")
+@JSGlobal("THREE.Sprite")
 class Sprite(var material: Material = js.native) extends Object3D {
   override def raycast(raycaster: Raycaster, intersects: js.Any): Unit = js.native
   override def updateMatrix(): Unit = js.native
@@ -2100,7 +2181,7 @@ trait CanvasRendererParameters extends js.Object {
 }
 
 @js.native
-@JSName("THREE.CanvasRenderer")
+@JSGlobal("THREE.CanvasRenderer")
 class CanvasRenderer(parameters: CanvasRendererParameters = js.native) extends Renderer {
 
   var devicePixelRatio: Double = js.native
@@ -2147,14 +2228,14 @@ trait WebGLRendererParameters extends js.Object {
 }
 
 @js.native
-@JSName("THREE.WebGLExtensions")
+@JSGlobal("THREE.WebGLExtensions")
 class WebGLExtensions extends js.Object {
   def get(name: String): js.Any = js.native
 }
 
 
 @js.native
-@JSName("THREE.WebGLShadowMap")
+@JSGlobal("THREE.WebGLShadowMap")
 class WebGLShadowMap() extends js.Any {
   var enabled: Boolean = js.native
 
@@ -2169,7 +2250,7 @@ class WebGLShadowMap() extends js.Any {
 }
 
 @js.native
-@JSName("THREE.WebGLRenderer")
+@JSGlobal("THREE.WebGLRenderer")
 class WebGLRenderer(parameters: WebGLRendererParameters = js.native) extends Renderer {
 
   var context: WebGLRenderingContext = js.native
@@ -2242,7 +2323,7 @@ trait WebGLRenderTargetOptions extends js.Object {
 }
 
 @js.native
-@JSName("THREE.WebGLRenderTarget")
+@JSGlobal("THREE.WebGLRenderTarget")
 class WebGLRenderTarget(var width: Double, var height: Double, options: WebGLRenderTargetOptions = js.native) extends RenderTarget with EventDispatcher {
   var wrapS: Wrapping = js.native
   var wrapT: Wrapping = js.native
@@ -2262,13 +2343,13 @@ class WebGLRenderTarget(var width: Double, var height: Double, options: WebGLRen
 }
 
 @js.native
-@JSName("THREE.WebGLRenderTargetCube")
+@JSGlobal("THREE.WebGLRenderTargetCube")
 class WebGLRenderTargetCube(width: Double, height: Double, options: WebGLRenderTargetOptions = js.native) extends WebGLRenderTarget(width, height, options) {
   var activeCubeFace: Double = js.native
 }
 
 @js.native
-@JSName("THREE.RenderableFace")
+@JSGlobal("THREE.RenderableFace")
 class RenderableFace extends js.Object {
   var id: Double = js.native
   var v1: RenderableVertex = js.native
@@ -2284,7 +2365,7 @@ class RenderableFace extends js.Object {
 }
 
 @js.native
-@JSName("THREE.RenderableLine")
+@JSGlobal("THREE.RenderableLine")
 class RenderableLine extends js.Object {
   var id: Double = js.native
   var v1: RenderableVertex = js.native
@@ -2295,7 +2376,7 @@ class RenderableLine extends js.Object {
 }
 
 @js.native
-@JSName("THREE.RenderableObject")
+@JSGlobal("THREE.RenderableObject")
 class RenderableObject extends js.Object {
   var id: Double = js.native
   var `object`: Object = js.native
@@ -2303,7 +2384,7 @@ class RenderableObject extends js.Object {
 }
 
 @js.native
-@JSName("THREE.RenderableSprite")
+@JSGlobal("THREE.RenderableSprite")
 class RenderableSprite extends js.Object {
   var id: Double = js.native
   var `object`: Object = js.native
@@ -2316,7 +2397,7 @@ class RenderableSprite extends js.Object {
 }
 
 @js.native
-@JSName("THREE.RenderableVertex")
+@JSGlobal("THREE.RenderableVertex")
 class RenderableVertex extends js.Object {
   var position: Vector3 = js.native
   var positionWorld: Vector3 = js.native
@@ -2393,7 +2474,7 @@ trait Shader extends js.Object {
 }
 
 @js.native
-@JSName("THREE.ShaderLib")
+@JSGlobal("THREE.ShaderLib")
 object ShaderLib extends js.Object {
   @JSBracketAccess
   def apply(name: String): Shader = js.native
@@ -2412,7 +2493,7 @@ object ShaderLib extends js.Object {
 }
 
 @js.native
-@JSName("THREE.UniformsLib")
+@JSGlobal("THREE.UniformsLib")
 object UniformsLib extends js.Object {
   var common: js.Any = js.native
   var bump: js.Any = js.native
@@ -2424,18 +2505,18 @@ object UniformsLib extends js.Object {
 }
 
 @js.native
-@JSName("THREE.UniformsUtils")
+@JSGlobal("THREE.UniformsUtils")
 object UniformsUtils extends js.Object {
   def merge(uniforms: js.Array[js.Any]): js.Dynamic = js.native
   def clone(uniforms_src: js.Any): js.Dynamic = js.native
 }
 
 @js.native
-@JSName("THREE.WebGLProgram")
+@JSGlobal("THREE.WebGLProgram")
 class WebGLProgram(renderer: WebGLRenderer, code: String, material: ShaderMaterial, parameters: WebGLRendererParameters) extends js.Object
 
 @js.native
-@JSName("THREE.WebGLShader")
+@JSGlobal("THREE.WebGLShader")
 class WebGLShader(gl: js.Any, `type`: String, string: String) extends js.Object
 
 @js.native
@@ -2446,19 +2527,19 @@ trait IFog extends js.Object {
 }
 
 @js.native
-@JSName("THREE.Fog")
+@JSGlobal("THREE.Fog")
 class Fog(color: Double, var near: Double = js.native, var far: Double = js.native) extends IFog {
   override def clone(): Fog = js.native
 }
 
 @js.native
-@JSName("THREE.FogExp2")
+@JSGlobal("THREE.FogExp2")
 class FogExp2(color: Double, var density: Double = js.native) extends IFog {
   override def clone(): FogExp2 = js.native
 }
 
 @js.native
-@JSName("THREE.Scene")
+@JSGlobal("THREE.Scene")
 class Scene extends Object3D {
   var fog: IFog = js.native
   var overrideMaterial: Material = js.native
@@ -2467,7 +2548,7 @@ class Scene extends Object3D {
 }
 
 @js.native
-@JSName("THREE.CompressedTexture")
+@JSGlobal("THREE.CompressedTexture")
 class CompressedTexture(
   mipmaps: js.Array[ImageData], width: Double, height: Double,
   format: PixelFormat = js.native, `type`: TextureDataType = js.native, mapping: Mapping = js.native, wrapS: Wrapping = js.native, wrapT: Wrapping = js.native, magFilter: TextureFilter = js.native, minFilter: TextureFilter = js.native, anisotropy: Double = js.native
@@ -2477,7 +2558,7 @@ class CompressedTexture(
 }
 
 @js.native
-@JSName("THREE.CubeTexture")
+@JSGlobal("THREE.CubeTexture")
 class CubeTexture(
   var images: js.Array[js.Any],
   mapping: Mapping = js.native, wrapS: Wrapping = js.native, wrapT: Wrapping = js.native, magFilter: TextureFilter = js.native, minFilter: TextureFilter = js.native, format: PixelFormat = js.native, `type`: TextureDataType = js.native, anisotropy: Double = js.native
@@ -2486,7 +2567,7 @@ class CubeTexture(
 }
 
 @js.native
-@JSName("THREE.DataTexture")
+@JSGlobal("THREE.DataTexture")
 class DataTexture(
   data: ImageData, width: Double, height: Double, format: PixelFormat, `type`: TextureDataType, mapping: Mapping, wrapS: Wrapping, wrapT: Wrapping, magFilter: TextureFilter, minFilter: TextureFilter, anisotropy: Double = js.native
 ) extends Texture(data, mapping, wrapS, wrapT, magFilter, minFilter, format, `type`, anisotropy) {
@@ -2495,7 +2576,7 @@ class DataTexture(
 }
 
 @js.native
-@JSName("THREE.Texture")
+@JSGlobal("THREE.Texture")
 class Texture(
   var image: js.Any,
   var mapping: Mapping = js.native, var wrapS: Wrapping = js.native, var wrapT: Wrapping = js.native,
@@ -2520,7 +2601,7 @@ class Texture(
 }
 
 @js.native
-@JSName("THREE.Texture")
+@JSGlobal("THREE.Texture")
 object Texture extends js.Object {
   var DEFAULT_IMAGE: js.Any = js.native
   var DEFAULT_MAPPING: js.Any = js.native
@@ -2533,7 +2614,7 @@ trait TypefaceData extends js.Object {
 }
 
 @js.native
-@JSName("THREE.FontUtils")
+@JSGlobal("THREE.FontUtils")
 object FontUtils extends js.Object {
   var faces: js.Any = js.native
   var face: String = js.native
@@ -2550,14 +2631,14 @@ object FontUtils extends js.Object {
 }
 
 @js.native
-@JSName("THREE.GeometryUtils")
+@JSGlobal("THREE.GeometryUtils")
 object GeometryUtils extends js.Object {
   def merge(geometry1: Geometry, object2: Mesh, materialIndexOffset: Double = js.native): Unit = js.native
   def center(geometry: Geometry): Vector3 = js.native
 }
 
 @js.native
-@JSName("THREE.ImageUtils")
+@JSGlobal("THREE.ImageUtils")
 object ImageUtils extends js.Object {
   var crossOrigin: String = js.native
   def loadTexture(url: String, mapping: Mapping = js.native, onLoad: js.Function1[Texture, Unit] = js.native, onError: js.Function1[String, Unit] = js.native): Texture = js.native
@@ -2567,7 +2648,7 @@ object ImageUtils extends js.Object {
 }
 
 @js.native
-@JSName("THREE.SceneUtils")
+@JSGlobal("THREE.SceneUtils")
 object SceneUtils extends js.Object {
   def createMultiMaterialObject(geometry: Geometry, materials: js.Array[Material]): Object3D = js.native
   def detach(child: Object3D, parent: Object3D, scene: Scene): Unit = js.native
@@ -2598,7 +2679,7 @@ trait AnimationData extends js.Object {
 }
 
 @js.native
-@JSName("THREE.Animation")
+@JSGlobal("THREE.Animation")
 class Animation(var root: Mesh, var data: AnimationData) extends js.Object {
   var hierarchy: js.Array[Bone] = js.native
   var currentTime: Double = js.native
@@ -2617,7 +2698,7 @@ class Animation(var root: Mesh, var data: AnimationData) extends js.Object {
 }
 
 @js.native
-@JSName("THREE.AnimationHandler")
+@JSGlobal("THREE.AnimationHandler")
 object AnimationHandler extends js.Object {
   var LINEAR: Double = js.native
   var CATMULLROM: Double = js.native
@@ -2631,7 +2712,7 @@ object AnimationHandler extends js.Object {
 }
 
 @js.native
-@JSName("THREE.KeyFrameAnimation")
+@JSGlobal("THREE.KeyFrameAnimation")
 class KeyFrameAnimation(var data: js.Any) extends js.Object {
   var root: Mesh = js.native
   var hierarchy: js.Array[KeyFrames] = js.native
@@ -2648,7 +2729,7 @@ class KeyFrameAnimation(var data: js.Any) extends js.Object {
 }
 
 @js.native
-@JSName("THREE.MorphAnimation")
+@JSGlobal("THREE.MorphAnimation")
 class MorphAnimation(var mesh: Mesh) extends js.Object {
   var frames: Double = js.native
   var currentTime: Double = js.native
@@ -2661,7 +2742,7 @@ class MorphAnimation(var mesh: Mesh) extends js.Object {
 }
 
 @js.native
-@JSName("THREE.Curve")
+@JSGlobal("THREE.Curve")
 class Curve extends js.Object {
   def getPoint(t: Double): Vector = js.native
   def getPointAt(u: Double): Vector = js.native
@@ -2676,7 +2757,7 @@ class Curve extends js.Object {
 }
 
 @js.native
-@JSName("THREE.Curve")
+@JSGlobal("THREE.Curve")
 object Curve extends js.Object {
   var Utils: js.Any = js.native
   def create(constructorFunc: js.Function, getPointFunc: js.Function): js.Function = js.native
@@ -2692,7 +2773,7 @@ trait BoundingBox extends js.Object {
 }
 
 @js.native
-@JSName("THREE.CurvePath")
+@JSGlobal("THREE.CurvePath")
 class CurvePath extends Curve {
   var curves: js.Array[Curve] = js.native
   var bends: js.Array[Path] = js.native
@@ -2714,7 +2795,7 @@ class CurvePath extends Curve {
 }
 
 @js.native
-@JSName("THREE.Gyroscope")
+@JSGlobal("THREE.Gyroscope")
 class Gyroscope extends Object3D {
   var translationWorld: Vector3 = js.native
   var translationObject: Vector3 = js.native
@@ -2730,7 +2811,7 @@ sealed trait PathActions extends js.Object {
 }
 
 @js.native
-@JSName("THREE.PathActions")
+@JSGlobal("THREE.PathActions")
 object PathActions extends js.Object {
   var MOVE_TO: PathActions = js.native
   var LINE_TO: PathActions = js.native
@@ -2750,7 +2831,7 @@ trait PathAction extends js.Object {
 }
 
 @js.native
-@JSName("THREE.Path")
+@JSGlobal("THREE.Path")
 class Path(points: js.Array[Vector2] = js.native) extends CurvePath {
   var actions: js.Array[PathAction] = js.native
   def fromPoints(vectors: js.Array[Vector2]): Unit = js.native
@@ -2771,7 +2852,7 @@ class Path(points: js.Array[Vector2] = js.native) extends CurvePath {
 }
 
 @js.native
-@JSName("THREE.Shape")
+@JSGlobal("THREE.Shape")
 class Shape(points: js.Array[Vector2] = js.native) extends Path(points) {
   var holes: js.Array[Path] = js.native
   def extrude(): ExtrudeGeometry = js.native
@@ -2787,37 +2868,37 @@ class Shape(points: js.Array[Vector2] = js.native) extends Path(points) {
 }
 
 @js.native
-@JSName("THREE.ArcCurve")
+@JSGlobal("THREE.ArcCurve")
 class ArcCurve(aX: Double, aY: Double, aRadius: Double, aStartAngle: Double, aEndAngle: Double, aClockwise: Boolean)
   extends EllipseCurve(aX, aY, aRadius, aRadius, aStartAngle, aEndAngle, aClockwise)
 
 @js.native
-@JSName("THREE.ClosedSplineCurve3")
+@JSGlobal("THREE.ClosedSplineCurve3")
 class ClosedSplineCurve3(var points: js.Array[Vector3] = js.native) extends Curve {
   override def getPoint(t: Double): Vector3 = js.native
 }
 
 @js.native
-@JSName("THREE.CubicBezierCurve")
+@JSGlobal("THREE.CubicBezierCurve")
 class CubicBezierCurve(var v0: Vector2, var v1: Vector2, var v2: Vector2, var v3: Vector2) extends Curve {
   override def getPoint(t: Double): Vector2 = js.native
   override def getTangent(t: Double): Vector2 = js.native
 }
 
 @js.native
-@JSName("THREE.CubicBezierCurve3")
+@JSGlobal("THREE.CubicBezierCurve3")
 class CubicBezierCurve3(var v0: Vector3, var v1: Vector3, var v2: Vector3, var v3: Vector3) extends Curve {
   override def getPoint(t: Double): Vector3 = js.native
 }
 
 @js.native
-@JSName("THREE.EllipseCurve")
+@JSGlobal("THREE.EllipseCurve")
 class EllipseCurve(var aX: Double, var aY: Double, var xRadius: Double, var yRadius: Double, var aStartAngle: Double, var aEndAngle: Double, var aClockwise: Boolean) extends Curve {
   override def getPoint(t: Double): Vector2 = js.native
 }
 
 @js.native
-@JSName("THREE.LineCurve")
+@JSGlobal("THREE.LineCurve")
 class LineCurve(var v1: Vector2, var v2: Vector2) extends Curve {
   override def getPoint(t: Double): Vector2 = js.native
   override def getPointAt(u: Double): Vector2 = js.native
@@ -2825,44 +2906,44 @@ class LineCurve(var v1: Vector2, var v2: Vector2) extends Curve {
 }
 
 @js.native
-@JSName("THREE.LineCurve3")
+@JSGlobal("THREE.LineCurve3")
 class LineCurve3(var v1: Vector3, var v2: Vector3) extends Curve {
   override def getPoint(t: Double): Vector3 = js.native
 }
 
 @js.native
-@JSName("THREE.QuadraticBezierCurve")
+@JSGlobal("THREE.QuadraticBezierCurve")
 class QuadraticBezierCurve(var v0: Vector2, var v1: Vector2, var v2: Vector2) extends Curve {
   override def getPoint(t: Double): Vector2 = js.native
   override def getTangent(t: Double): Vector2 = js.native
 }
 
 @js.native
-@JSName("THREE.QuadraticBezierCurve3")
+@JSGlobal("THREE.QuadraticBezierCurve3")
 class QuadraticBezierCurve3(var v0: Vector3, var v1: Vector3, var v2: Vector3) extends Curve {
   override def getPoint(t: Double): Vector3 = js.native
 }
 
 @js.native
-@JSName("THREE.SplineCurve")
+@JSGlobal("THREE.SplineCurve")
 class SplineCurve(var points: js.Array[Vector2] = js.native) extends Curve {
   override def getPoint(t: Double): Vector2 = js.native
 }
 
 @js.native
-@JSName("THREE.SplineCurve3")
+@JSGlobal("THREE.SplineCurve3")
 class SplineCurve3(var points: js.Array[Vector3] = js.native) extends Curve {
   override def getPoint(t: Double): Vector3 = js.native
 }
 
 @js.native
-@JSName("THREE.BoxGeometry")
+@JSGlobal("THREE.BoxGeometry")
 class BoxGeometry(width: Double, height: Double, depth: Double, var widthSegments: Double = js.native, var heightSegments: Double = js.native, var depthSegments: Double = js.native) extends Geometry {
   var parameters: js.Any = js.native
 }
 
 @js.native
-@JSName("THREE.CircleGeometry")
+@JSGlobal("THREE.CircleGeometry")
 class CircleGeometry extends Geometry {
   def this(radius: Double = js.native, segments: Double = js.native, thetaStart: Double = js.native, thetaLength: Double = js.native) = this()
   var parameters: js.Any = js.native
@@ -2873,12 +2954,12 @@ class CircleGeometry extends Geometry {
 }
 
 @js.native
-@JSName("THREE.CubeGeometry")
+@JSGlobal("THREE.CubeGeometry")
 class CubeGeometry(width: Double, height: Double, depth: Double, widthSegments: Double = js.native, heightSegments: Double = js.native,  depthSegments: Double = js.native)
   extends BoxGeometry(width, height, depth, widthSegments, heightSegments, depthSegments)
 
 @js.native
-@JSName("THREE.CylinderGeometry")
+@JSGlobal("THREE.CylinderGeometry")
 class CylinderGeometry(
   var radiusTop: Double = js.native, var radiusBottom: Double = js.native, var height: Double = js.native,
   var radiusSegments: Double = js.native, var heightSegments: Double = js.native, var openEnded: Boolean = js.native
@@ -2887,7 +2968,7 @@ class CylinderGeometry(
 }
 
 @js.native
-@JSName("THREE.ExtrudeGeometry")
+@JSGlobal("THREE.ExtrudeGeometry")
 class ExtrudeGeometry(shapes: js.Array[Shape], options: js.Any = js.native) extends Geometry {
   protected def this() = this(js.Array[Shape]())
   def this(shape: Shape) = this(js.Array(shape))
@@ -2898,43 +2979,43 @@ class ExtrudeGeometry(shapes: js.Array[Shape], options: js.Any = js.native) exte
 }
 
 @js.native
-@JSName("THREE.IcosahedronGeometry")
+@JSGlobal("THREE.IcosahedronGeometry")
 class IcosahedronGeometry(var radius: Double = js.native, var detail: Double = js.native) extends PolyhedronGeometry {
   var parameters: js.Any = js.native
 }
 
 @js.native
-@JSName("THREE.LatheGeometry")
+@JSGlobal("THREE.LatheGeometry")
 class LatheGeometry(points: js.Array[Vector3], segments: Double = js.native, phiStart: Double = js.native, phiLength: Double = js.native) extends Geometry
 
 @js.native
-@JSName("THREE.OctahedronGeometry")
+@JSGlobal("THREE.OctahedronGeometry")
 class OctahedronGeometry(var radius: Double, var detail: Double) extends PolyhedronGeometry {
   var parameters: js.Any = js.native
 }
 
 @js.native
-@JSName("THREE.ParametricGeometry")
+@JSGlobal("THREE.ParametricGeometry")
 class ParametricGeometry(func: js.Function2[Double, Double, Vector3], slices: Double, stacks: Double, useTris: Boolean = js.native) extends Geometry
 
 @js.native
-@JSName("THREE.PlaneGeometry")
+@JSGlobal("THREE.PlaneGeometry")
 class PlaneGeometry(var width: Double, var height: Double, var widthSegments: Double = js.native, var heightSegments: Double = js.native) extends Geometry {
   var parameters: js.Any = js.native
 }
 
 @js.native
-@JSName("THREE.PolyhedronGeometry")
+@JSGlobal("THREE.PolyhedronGeometry")
 class PolyhedronGeometry extends Geometry {
   def this(vertices: js.Array[Vector3], faces: js.Array[Face3], radius: Double = js.native, detail: Double = js.native) = this()
 }
 
 @js.native
-@JSName("THREE.RingGeometry")
+@JSGlobal("THREE.RingGeometry")
 class RingGeometry(innerRadius: Double = js.native, outerRadius: Double = js.native, thetaSegments: Double = js.native, phiSegments: Double = js.native, thetaStart: Double = js.native, thetaLength: Double = js.native) extends Geometry
 
 @js.native
-@JSName("THREE.ShapeGeometry")
+@JSGlobal("THREE.ShapeGeometry")
 class ShapeGeometry extends Geometry {
   def this(shape: Shape) = this()
   def this(shape: Shape, options: js.Any) = this()
@@ -2947,7 +3028,7 @@ class ShapeGeometry extends Geometry {
 }
 
 @js.native
-@JSName("THREE.SphereGeometry")
+@JSGlobal("THREE.SphereGeometry")
 class SphereGeometry(
   var radius: Double, var widthSegments: Double = js.native, var heightSegments: Double = js.native,
   var phiStart: Double = js.native, var phiLength: Double = js.native, var thetaStart: Double = js.native, var thetaLength: Double = js.native
@@ -2956,7 +3037,7 @@ class SphereGeometry(
 }
 
 @js.native
-@JSName("THREE.TetrahedronGeometry")
+@JSGlobal("THREE.TetrahedronGeometry")
 class TetrahedronGeometry(radius: Double = js.native, detail: Double = js.native) extends PolyhedronGeometry
 
 @js.native
@@ -2973,23 +3054,23 @@ trait TextGeometryParameters extends js.Object {
 }
 
 @js.native
-@JSName("THREE.TextGeometry")
+@JSGlobal("THREE.TextGeometry")
 class TextGeometry(text: String, TextGeometryParameters: TextGeometryParameters = js.native) extends ExtrudeGeometry
 
 @js.native
-@JSName("THREE.TorusGeometry")
+@JSGlobal("THREE.TorusGeometry")
 class TorusGeometry(var radius: Double = js.native, var tube: Double = js.native, var radialSegments: Double = js.native, var tubularSegments: Double = js.native, var arc: Double = js.native) extends Geometry {
   var parameters: js.Any = js.native
 }
 
 @js.native
-@JSName("THREE.TorusKnotGeometry")
+@JSGlobal("THREE.TorusKnotGeometry")
 class TorusKnotGeometry(var radius: Double = js.native, var tube: Double = js.native, var radialSegments: Double = js.native, var tubularSegments: Double = js.native, var p: Double = js.native, var q: Double = js.native, var heightScale: Double = js.native) extends Geometry {
   var parameters: js.Any = js.native
 }
 
 @js.native
-@JSName("THREE.TubeGeometry")
+@JSGlobal("THREE.TubeGeometry")
 class TubeGeometry(var path: Path, var segments: Double = js.native, var radius: Double = js.native, var radialSegments: Double = js.native, var closed: Boolean = js.native) extends Geometry {
   var parameters: js.Any = js.native
   var tangents: js.Array[Vector3] = js.native
@@ -2999,7 +3080,7 @@ class TubeGeometry(var path: Path, var segments: Double = js.native, var radius:
 }
 
 @js.native
-@JSName("THREE.ArrowHelper")
+@JSGlobal("THREE.ArrowHelper")
 class ArrowHelper(dir: Vector3, origin: Vector3 = js.native, length: Double = js.native, hex: Double = js.native, headLength: Double = js.native, headWidth: Double = js.native) extends Object3D {
   var line: Line = js.native
   var cone: Mesh = js.native
@@ -3011,31 +3092,31 @@ class ArrowHelper(dir: Vector3, origin: Vector3 = js.native, length: Double = js
 }
 
 @js.native
-@JSName("THREE.AxisHelper")
+@JSGlobal("THREE.AxisHelper")
 class AxisHelper(size: Double = js.native) extends Line
 
 @js.native
-@JSName("THREE.BoundingBoxHelper")
+@JSGlobal("THREE.BoundingBoxHelper")
 class BoundingBoxHelper(var `object`: Object3D, hex: Double = js.native) extends Mesh {
   var box: js.Array[Box3] = js.native
   def update(): Unit = js.native
 }
 
 @js.native
-@JSName("THREE.BoxHelper")
+@JSGlobal("THREE.BoxHelper")
 class BoxHelper(`object`: Object3D = js.native) extends Line {
   def update(`object`: Object3D = js.native): Unit = js.native
 }
 
 @js.native
-@JSName("THREE.CameraHelper")
+@JSGlobal("THREE.CameraHelper")
 class CameraHelper(var camera: Camera) extends Line {
   var pointMap: js.Any = js.native
   def update(): Unit = js.native
 }
 
 @js.native
-@JSName("THREE.DirectionalLightHelper")
+@JSGlobal("THREE.DirectionalLightHelper")
 class DirectionalLightHelper(var light: Light, size: Double = js.native) extends Object3D {
   var lightPlane: Line = js.native
   var targetLine: Line = js.native
@@ -3044,18 +3125,18 @@ class DirectionalLightHelper(var light: Light, size: Double = js.native) extends
 }
 
 @js.native
-@JSName("THREE.EdgesHelper")
+@JSGlobal("THREE.EdgesHelper")
 class EdgesHelper(`object`: Object3D, hex: Double = js.native) extends Line
 
 @js.native
-@JSName("THREE.FaceNormalsHelper")
+@JSGlobal("THREE.FaceNormalsHelper")
 class FaceNormalsHelper(var `object`: Object3D, var size: Double = js.native, hex: Double = js.native, linewidth: Double = js.native) extends Line {
   var normalMatrix: Matrix3 = js.native
   def update(`object`: Object3D = js.native): Unit = js.native
 }
 
 @js.native
-@JSName("THREE.GridHelper")
+@JSGlobal("THREE.GridHelper")
 class GridHelper(size: Double, step: Double) extends Line {
   var color1: Color = js.native
   var color2: Color = js.native
@@ -3063,7 +3144,7 @@ class GridHelper(size: Double, step: Double) extends Line {
 }
 
 @js.native
-@JSName("THREE.HemisphereLightHelper")
+@JSGlobal("THREE.HemisphereLightHelper")
 class HemisphereLightHelper(var light: Light, sphereSize: Double, arrowLength: Double, domeSize: Double) extends Object3D {
   var colors: js.Array[Color] = js.native
   var lightSphere: Mesh = js.native
@@ -3072,14 +3153,14 @@ class HemisphereLightHelper(var light: Light, sphereSize: Double, arrowLength: D
 }
 
 @js.native
-@JSName("THREE.PointLightHelper")
+@JSGlobal("THREE.PointLightHelper")
 class PointLightHelper(var light: Light, sphereSize: Double) extends Object3D {
   def dispose(): Unit = js.native
   def update(): Unit = js.native
 }
 
 @js.native
-@JSName("THREE.SkeletonHelper")
+@JSGlobal("THREE.SkeletonHelper")
 class SkeletonHelper(bone: Object3D) extends Line {
   var bones: js.Array[Bone] = js.native
   var root: Object3D = js.native
@@ -3088,7 +3169,7 @@ class SkeletonHelper(bone: Object3D) extends Line {
 }
 
 @js.native
-@JSName("THREE.SpotLightHelper")
+@JSGlobal("THREE.SpotLightHelper")
 class SpotLightHelper(var light: Light, sphereSize: Double, arrowLength: Double) extends Object3D {
   var cone: Mesh = js.native
   def dispose(): Unit = js.native
@@ -3096,24 +3177,24 @@ class SpotLightHelper(var light: Light, sphereSize: Double, arrowLength: Double)
 }
 
 @js.native
-@JSName("THREE.VertexNormalsHelper")
+@JSGlobal("THREE.VertexNormalsHelper")
 class VertexNormalsHelper(var `object`: Object3D, var size: Double = js.native, hex: Double = js.native, linewidth: Double = js.native) extends Line {
   var normalMatrix: Matrix3 = js.native
   def update(`object`: Object3D = js.native): Unit = js.native
 }
 
 @js.native
-@JSName("THREE.VertexTangentsHelper")
+@JSGlobal("THREE.VertexTangentsHelper")
 class VertexTangentsHelper(var `object`: Object3D, var size: Double = js.native, hex: Double = js.native, linewidth: Double = js.native) extends Line {
   def update(`object`: Object3D = js.native): Unit = js.native
 }
 
 @js.native
-@JSName("THREE.WireframeHelper")
+@JSGlobal("THREE.WireframeHelper")
 class WireframeHelper(`object`: Object3D, hex: Double = js.native) extends Line
 
 @js.native
-@JSName("THREE.ImmediateRenderObject")
+@JSGlobal("THREE.ImmediateRenderObject")
 class ImmediateRenderObject extends Object3D {
   def render(renderCallback: js.Function): Unit = js.native
 }
@@ -3134,7 +3215,7 @@ trait LensFlareProperty extends js.Object {
 }
 
 @js.native
-@JSName("THREE.LensFlare")
+@JSGlobal("THREE.LensFlare")
 class LensFlare(texture: Texture = js.native, size: Double = js.native, distance: Double = js.native, blending: Blending = js.native, color: Color = js.native) extends Object3D {
   var lensFlares: js.Array[LensFlareProperty] = js.native
   var positionScreen: Vector3 = js.native
@@ -3162,7 +3243,7 @@ trait MorphBlendMeshAnimation extends js.Object {
 }
 
 @js.native
-@JSName("THREE.MorphBlendMesh")
+@JSGlobal("THREE.MorphBlendMesh")
 class MorphBlendMesh(geometry: Geometry, material: Material) extends Mesh(geometry, material) {
   var animationsMap: js.Any = js.native
   var animationsList: js.Array[MorphBlendMeshAnimation] = js.native
@@ -3182,7 +3263,7 @@ class MorphBlendMesh(geometry: Geometry, material: Material) extends Mesh(geomet
 }
 
 @js.native
-@JSName("THREE.DepthPassPlugin")
+@JSGlobal("THREE.DepthPassPlugin")
 class DepthPassPlugin extends RendererPlugin {
   var enabled: Boolean = js.native
   var renderTarget: RenderTarget = js.native
@@ -3192,14 +3273,14 @@ class DepthPassPlugin extends RendererPlugin {
 }
 
 @js.native
-@JSName("THREE.LensFlarePlugin")
+@JSGlobal("THREE.LensFlarePlugin")
 class LensFlarePlugin extends RendererPlugin {
   def init(renderer: Renderer): Unit = js.native
   override def render(scene: Scene, camera: Camera, viewportWidth: Double, viewportHeight: Double): Unit = js.native
 }
 
 @js.native
-@JSName("THREE.ShadowMapPlugin")
+@JSGlobal("THREE.ShadowMapPlugin")
 class ShadowMapPlugin extends RendererPlugin {
   def init(renderer: Renderer): Unit = js.native
   def render(scene: Scene, camera: Camera): Unit = js.native
@@ -3207,21 +3288,21 @@ class ShadowMapPlugin extends RendererPlugin {
 }
 
 @js.native
-@JSName("THREE.SpritePlugin")
+@JSGlobal("THREE.SpritePlugin")
 class SpritePlugin extends RendererPlugin {
   def init(renderer: Renderer): Unit = js.native
   override def render(scene: Scene, camera: Camera, viewportWidth: Double, viewportHeight: Double): Unit = js.native
 }
 
 @js.native
-@JSName("THREE.ShaderFlares")
+@JSGlobal("THREE.ShaderFlares")
 object ShaderFlares extends js.Object {
   var lensFlareVertexTexture: js.Any = js.native
   var lensFlare: js.Any = js.native
 }
 
 @js.native
-@JSName("Stats")
+@JSGlobal("Stats")
 class Stats extends js.Object {
   def showPanel(i: Int): Unit = js.native
   def begin(): js.Any = js.native

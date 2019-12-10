@@ -1,6 +1,6 @@
 object Versions extends WebJarsVersions with ScalaJSVersions with SharedVersions
 {
-	val scala = "2.11.8"
+	val scala = "2.12.10"
 
 	val akkaHttpExtensions = "0.0.15"
 }

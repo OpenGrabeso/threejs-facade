@@ -16,18 +16,13 @@ object Dependencies {
     "com.github.japgolly.scalacss" %%% "ext-scalatags" % Versions.scalaCSS))
 
   lazy val facadeDependencies = Def.setting(Seq(
-    "org.scala-js" %%% "scalajs-dom" % Versions.dom,
-
-    "org.querki" %%% "querki-jsext" % Versions.jsext //useful sclalajs extensions
+    "org.scala-js" %%% "scalajs-dom" % Versions.dom
     ))
 
   //scalajs libs
   lazy val sjsLibs = Def.setting(Seq(
-    "org.scala-js" %%% "scalajs-dom" % Versions.dom,
-
-    "org.querki" %%% "jquery-facade" % Versions.jqueryFacade, //scalajs facade for jQuery + jQuery extensions
-
-    "org.querki" %%% "querki-jsext" % Versions.jsext))
+    "org.scala-js" %%% "scalajs-dom" % Versions.dom
+  ))
 
   //dependencies on javascript libs
   lazy val webjars = Def.setting(Seq(

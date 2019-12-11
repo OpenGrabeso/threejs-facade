@@ -7,17 +7,13 @@ object Versions extends WebJarsVersions with ScalaJSVersions with SharedVersions
 
 trait ScalaJSVersions {
 
-	val jqueryFacade = "1.0"
-
-	val jsext = "0.8"
-
-	val dom = "0.9.1"
+	val dom = "0.9.8"
 
 	val codemirrorFacade = "5.22.0-0.8"
 
 	val binding = "0.8.17"
 
-	val scalaTest = "3.0.1"
+	val scalaTest = "3.0.8"
 
 }
 

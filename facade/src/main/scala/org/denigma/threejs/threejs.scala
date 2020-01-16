@@ -23,6 +23,7 @@ object THREE extends js.Object {
   var BasicShadowMap: ShadowMapType = js.native
   var PCFShadowMap: ShadowMapType = js.native
   var PCFSoftShadowMap: ShadowMapType = js.native
+  var VSMShadowMap: ShadowMapType = js.native
   var FrontSide: Side = js.native
   var BackSide: Side = js.native
   var DoubleSide: Side = js.native

@@ -415,9 +415,9 @@ class BufferGeometry extends AGeometry {
   var boundingSphere: BoundingSphere = js.native
   def getIndex(): BufferAttribute = js.native
   def setIndex(index: BufferAttribute): Unit = js.native
-  def addAttribute(name: String, attribute: BufferAttribute): Unit = js.native
+  def setAttribute(name: String, attribute: BufferAttribute): Unit = js.native
   def getAttribute(name: String): BufferAttribute = js.native
-  def removeAttribute(name: String): Unit = js.native
+  def deleteAttribute(name: String): Unit = js.native
   def addGroup(start: Double, count: Double, materialIndex: Double): Unit = js.native
   def clearGroups(): Unit = js.native
   def setDrawRange(start: Double, count: Double): Unit = js.native

@@ -893,6 +893,11 @@ class Material extends js.Object with EventDispatcher {
   var shadowOffsetUnits: Double = js.native // not implemented yet in public three.js as of 101
   var shadowOffsetFactor: Double = js.native
   var opacity: Double = js.native
+  var map: Texture = js.native
+  var lightMap: Texture = js.native
+  var specularMap: Texture = js.native
+  var alphaMap: Texture = js.native
+  var envMap: Texture = js.native
   var transparent: Boolean = js.native
   var blending: Blending = js.native
   var blendSrc: BlendingDstFactor = js.native
@@ -986,11 +991,6 @@ trait MeshBasicMaterialParameters extends MaterialParameters {
 @JSGlobal("THREE.MeshBasicMaterial")
 class MeshBasicMaterial(parameters: MeshBasicMaterialParameters = js.native) extends Material {
   var color: Color = js.native
-  var map: Texture = js.native
-  var lightMap: Texture = js.native
-  var specularMap: Texture = js.native
-  var alphaMap: Texture = js.native
-  var envMap: Texture = js.native
   var combine: Combine = js.native
   var reflectivity: Double = js.native
   var refractionRatio: Double = js.native
@@ -1061,11 +1061,6 @@ class MeshLambertMaterial(parameters: MeshLambertMaterialParameters = js.native)
   var emissive: Color = js.native
   var wrapAround: Boolean = js.native
   var wrapRGB: Vector3 = js.native
-  var map: Texture = js.native
-  var lightMap: Texture = js.native
-  var specularMap: Texture = js.native
-  var alphaMap: Texture = js.native
-  var envMap: Texture = js.native
   var combine: Combine = js.native
   var reflectivity: Double = js.native
   var refractionRatio: Double = js.native
@@ -1145,15 +1140,10 @@ class MeshPhongMaterial(parameters: MeshPhongMaterialParameters = js.native) ext
   var metal: Boolean = js.native
   var wrapAround: Boolean = js.native
   var wrapRGB: Vector3 = js.native
-  var map: Texture = js.native
-  var lightMap: Texture = js.native
   var bumpMap: Texture = js.native
   var bumpScale: Double = js.native
   var normalMap: Texture = js.native
   var normalScale: Vector2 = js.native
-  var specularMap: Texture = js.native
-  var alphaMap: Texture = js.native
-  var envMap: Texture = js.native
   var combine: Combine = js.native
   var reflectivity: Double = js.native
   var refractionRatio: Double = js.native
@@ -1216,15 +1206,10 @@ class MeshStandardMaterial(parameters: MeshStandardMaterialParameters = js.nativ
   var metalness: Double = js.native
   var wrapAround: Boolean = js.native
   var wrapRGB: Vector3 = js.native
-  var map: Texture = js.native
-  var lightMap: Texture = js.native
   var bumpMap: Texture = js.native
   var bumpScale: Double = js.native
   var normalMap: Texture = js.native
   var normalScale: Vector2 = js.native
-  var specularMap: Texture = js.native
-  var alphaMap: Texture = js.native
-  var envMap: Texture = js.native
   var combine: Combine = js.native
   var reflectivity: Double = js.native
   var refractionRatio: Double = js.native
@@ -1255,7 +1240,6 @@ trait PointCloudMaterialParameters extends MaterialParameters {
 @JSGlobal("THREE.PointCloudMaterial")
 class PointCloudMaterial(parameters: PointCloudMaterialParameters = js.native) extends Material {
   var color: Color = js.native
-  var map: Texture = js.native
   var size: Double = js.native
   var sizeAttenuation: Boolean = js.native
   var vertexColors: Boolean = js.native
@@ -1340,7 +1324,6 @@ trait SpriteMaterialParameters extends MaterialParameters {
 @JSGlobal("THREE.SpriteMaterial")
 class SpriteMaterial(parameters: SpriteMaterialParameters = js.native) extends Material {
   var color: Color = js.native
-  var map: Texture = js.native
   var rotation: Double = js.native
   var fog: Boolean = js.native
   override def clone(): SpriteMaterial = js.native
@@ -2570,7 +2553,10 @@ class CubeTexture(
 @js.native
 @JSGlobal("THREE.DataTexture")
 class DataTexture(
-  data: ImageData, width: Double, height: Double, format: PixelFormat, `type`: TextureDataType, mapping: Mapping, wrapS: Wrapping, wrapT: Wrapping, magFilter: TextureFilter, minFilter: TextureFilter, anisotropy: Double = js.native
+  data: js.Any, width: Double, height: Double, format: PixelFormat, `type`: TextureDataType,
+  mapping: Mapping = js.native,
+  wrapS: Wrapping = js.native, wrapT: Wrapping = js.native,
+  magFilter: TextureFilter = js.native, minFilter: TextureFilter = js.native, anisotropy: Double = js.native
 ) extends Texture(data, mapping, wrapS, wrapT, magFilter, minFilter, format, `type`, anisotropy) {
 
   override def clone(): DataTexture = js.native

@@ -1,6 +1,6 @@
 lazy val crossVersions = Seq("2.11.12", "2.12.10", "2.13.1")
 
-scalaVersion := Versions.scala
+scalaVersion := "2.12.10"
 
 crossScalaVersions := crossVersions
 
@@ -22,17 +22,15 @@ githubTokenSource in ThisBuild := TokenSource.GitConfig("github.token") || Token
 
 
 publishTo := {
-  Some("GitHub gamatron Apache Maven Packages" at "https://maven.pkg.github.com/gamatron/packages/")
+  Some("GitHub OpenGrabeso Apache Maven Packages" at "https://maven.pkg.github.com/OpenGrabeso/packages/")
 }
-
-libraryDependencies ++= Dependencies.commonShared.value ++ Dependencies.testing.value
 
 crossScalaVersions := crossVersions
 
 scalaSource in Compile := baseDirectory.value / "facade" / "src"
 
 
-libraryDependencies ++= Dependencies.facadeDependencies.value
+libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "1.0.0"
 
 jsDependencies += ProvidedJS / "three.js" minified "three.min.js" commonJSName "THREE"
 

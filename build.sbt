@@ -4,31 +4,28 @@ scalaVersion := Versions.scala
 
 crossScalaVersions := crossVersions
 
-organization := "net.gamatron"
-
+organization := "com.github.opengrabeso"
 
 name := "threejs-facade"
 
-version := "0.0.112-0.0.2"
-
-resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases") //add resolver
-
-resolvers += Resolver.jcenterRepo
+version := "0.0.114-0.0.1"
 
 publishMavenStyle := true
 
+githubOwner in ThisBuild := "OpenGrabeso"
+
+githubRepository in ThisBuild := "packages"
+
+githubActor in ThisBuild := sys.env.getOrElse("GITHUB_USERNAME", "OpenGrabeso")
+
+githubTokenSource in ThisBuild := TokenSource.GitConfig("github.token") || TokenSource.Environment("GITHUB_USERTOKEN") || TokenSource.Environment("GITHUB_TOKEN")
+
+
 publishTo := {
-	val nexus = "https://www.gamatron.net/nexus/"
-	if (isSnapshot.value)
-		Some("Gamatron Snapshots Nexus" at nexus + "repository/maven-snapshots")
-	else
-		Some("Gamatron Releases Nexus"  at nexus + "repository/maven-releases")
+  Some("GitHub gamatron Apache Maven Packages" at "https://maven.pkg.github.com/gamatron/packages/")
 }
 
-credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
-
-
-libraryDependencies ++= Dependencies.commonShared.value++Dependencies.testing.value
+libraryDependencies ++= Dependencies.commonShared.value ++ Dependencies.testing.value
 
 crossScalaVersions := crossVersions
 

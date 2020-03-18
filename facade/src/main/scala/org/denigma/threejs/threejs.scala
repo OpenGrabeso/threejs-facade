@@ -32,7 +32,6 @@ object THREE extends js.Object {
   var SmoothShading: Shading = js.native
   var NoColors: Colors = js.native
   var FaceColors: Colors = js.native
-  var VertexColors: Colors = js.native
   var NoBlending: Blending = js.native
   var NormalBlending: Blending = js.native
   var AdditiveBlending: Blending = js.native
@@ -925,7 +924,7 @@ trait LineBasicMaterialParameters extends MaterialParameters {
   var linewidth: Double = js.native
   var linecap: String = js.native
   var linejoin: String = js.native
-  var vertexColors: Colors = js.native
+  var vertexColors: Boolean = js.native
   var fog: Boolean = js.native
 }
 
@@ -936,7 +935,7 @@ class LineBasicMaterial(parameters: LineBasicMaterialParameters = js.native) ext
   var linewidth: Double = js.native
   var linecap: String = js.native
   var linejoin: String = js.native
-  var vertexColors: Colors = js.native
+  var vertexColors: Boolean = js.native
   var fog: Boolean = js.native
   override def clone(): LineBasicMaterial = js.native
 }
@@ -948,7 +947,7 @@ trait LineDashedMaterialParameters extends MaterialParameters {
   var scale: Double = js.native
   var dashSize: Double = js.native
   var gapSize: Double = js.native
-  var vertexColors: Colors = js.native
+  var vertexColors: Boolean = js.native
   var fog: Boolean = js.native
 }
 
@@ -960,7 +959,7 @@ class LineDashedMaterial(parameters: LineDashedMaterialParameters = js.native) e
   var scale: Double = js.native
   var dashSize: Double = js.native
   var gapSize: Double = js.native
-  var vertexColors: Colors = js.native
+  var vertexColors: Boolean = js.native
   var fog: Boolean = js.native
   override def clone(): LineDashedMaterial = js.native
 }
@@ -982,7 +981,7 @@ trait MeshBasicMaterialParameters extends MaterialParameters {
   var wireframeLinewidth: Double = js.native
   var wireframeLinecap: String = js.native
   var wireframeLinejoin: String = js.native
-  var vertexColors: Colors = js.native
+  var vertexColors: Boolean = js.native
   var skinning: Boolean = js.native
   var morphTargets: Boolean = js.native
 }
@@ -1000,7 +999,7 @@ class MeshBasicMaterial(parameters: MeshBasicMaterialParameters = js.native) ext
   var wireframeLinewidth: Double = js.native
   var wireframeLinecap: String = js.native
   var wireframeLinejoin: String = js.native
-  var vertexColors: Colors = js.native
+  var vertexColors: Boolean = js.native
   var skinning: Boolean = js.native
   var morphTargets: Boolean = js.native
   override def clone(): MeshBasicMaterial = js.native
@@ -1047,7 +1046,7 @@ trait MeshLambertMaterialParameters extends MaterialParameters {
   var wireframeLinewidth: Double = js.native
   var wireframeLinecap: String = js.native
   var wireframeLinejoin: String = js.native
-  var vertexColors: Colors = js.native
+  var vertexColors: Boolean = js.native
   var skinning: Boolean = js.native
   var morphTargets: Boolean = js.native
   var morphNormals: Boolean = js.native
@@ -1070,7 +1069,7 @@ class MeshLambertMaterial(parameters: MeshLambertMaterialParameters = js.native)
   var wireframeLinewidth: Double = js.native
   var wireframeLinecap: String = js.native
   var wireframeLinejoin: String = js.native
-  var vertexColors: Colors = js.native
+  var vertexColors: Boolean = js.native
   var skinning: Boolean = js.native
   var morphTargets: Boolean = js.native
   var morphNormals: Boolean = js.native
@@ -1123,7 +1122,7 @@ trait MeshPhongMaterialParameters extends MaterialParameters {
   var wireframeLinewidth: Double = js.native
   var wireframeLinecap: String = js.native
   var wireframeLinejoin: String = js.native
-  var vertexColors: Colors = js.native
+  var vertexColors: Boolean = js.native
   var skinning: Boolean = js.native
   var morphTargets: Boolean = js.native
   var morphNormals: Boolean = js.native
@@ -1153,7 +1152,7 @@ class MeshPhongMaterial(parameters: MeshPhongMaterialParameters = js.native) ext
   var wireframeLinewidth: Double = js.native
   var wireframeLinecap: String = js.native
   var wireframeLinejoin: String = js.native
-  var vertexColors: Colors = js.native
+  var vertexColors: Boolean = js.native
   var skinning: Boolean = js.native
   var morphTargets: Boolean = js.native
   var morphNormals: Boolean = js.native
@@ -1188,7 +1187,7 @@ trait MeshStandardMaterialParameters extends MaterialParameters {
   var wireframeLinewidth: Double = js.native
   var wireframeLinecap: String = js.native
   var wireframeLinejoin: String = js.native
-  var vertexColors: Colors = js.native
+  var vertexColors: Boolean = js.native
   var skinning: Boolean = js.native
   var morphTargets: Boolean = js.native
   var morphNormals: Boolean = js.native
@@ -1219,7 +1218,7 @@ class MeshStandardMaterial(parameters: MeshStandardMaterialParameters = js.nativ
   var wireframeLinewidth: Double = js.native
   var wireframeLinecap: String = js.native
   var wireframeLinejoin: String = js.native
-  var vertexColors: Colors = js.native
+  var vertexColors: Boolean = js.native
   var skinning: Boolean = js.native
   var morphTargets: Boolean = js.native
   var morphNormals: Boolean = js.native
@@ -1232,7 +1231,7 @@ trait PointCloudMaterialParameters extends MaterialParameters {
   var map: Texture = js.native
   var size: Double = js.native
   var sizeAttenuation: Boolean = js.native
-  var vertexColors: Colors = js.native
+  var vertexColors: Boolean = js.native
   var fog: Boolean = js.native
 }
 
@@ -1272,7 +1271,7 @@ trait ShaderMaterialParameters extends MaterialParameters {
   var wireframeLinewidth: Double = js.native
   var fog: Boolean = js.native
   var lights: Boolean = js.native
-  var vertexColors: Colors = js.native
+  var vertexColors: Boolean = js.native
   var skinning: Boolean = js.native
   var morphTargets: Boolean = js.native
   var morphNormals: Boolean = js.native
@@ -1292,7 +1291,7 @@ class ShaderMaterial(parameters: ShaderMaterialParameters = js.native) extends M
   var wireframeLinewidth: Double = js.native
   var fog: Boolean = js.native
   var lights: Boolean = js.native
-  var vertexColors: Colors = js.native
+  var vertexColors: Boolean = js.native
   var skinning: Boolean = js.native
   var morphTargets: Boolean = js.native
   var morphNormals: Boolean = js.native

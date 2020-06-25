@@ -3315,23 +3315,39 @@ class AudioBuffer extends Object3D {
 @js.native
 @JSGlobal("THREE.AudioListener")
 class AudioListener extends Object3D {
+  def getMasterVolume(): Double = js.native
+  def setMasterVolume (value : Double): this.type = js.native
 
 }
 
 @js.native
 @JSGlobal("THREE.Audio")
 class Audio(listener: AudioListener) extends Object3D {
-  def play(delay: Double = 0): Audio = js.native
-  def stop(): Audio = js.native
-  def setBuffer(audioBuffer: AudioBuffer): Audio = js.native
-  def setRefDistance(d: Double): Audio = js.native
+  def play(delay: Double = 0): this.type = js.native
+  def stop(): this.type = js.native
+  def setBuffer(audioBuffer: AudioBuffer): this.type = js.native
+
   var loop: Boolean = js.native
   val isPlaying: Boolean = js.native
+
+  def setLoop (value: Boolean ): this.type = js.native
+  def setLoopStart(value: Double): this.type = js.native
+  def setLoopEnd(value: Double): this.type = js.native
+  def setPlaybackRate(value: Double): this.type = js.native
+  def setVolume(value: Double): this.type = js.native
 }
 
 @js.native
 @JSGlobal("THREE.PositionalAudio")
 class PositionalAudio(listener: AudioListener) extends Audio(listener) {
+  def setRefDistance(d: Double): this.type = js.native
 
+  def setRolloffFactor(d: Double): this.type = js.native
+
+  def setDistanceModel(value: String): this.type = js.native
+
+  def setMaxDistance(value: Double): this.type = js.native
+
+  def setDirectionalCone(coneInnerAngle: Float, coneOuterAngle: Float, coneOuterGain: Float): this.type = js.native
 }
 

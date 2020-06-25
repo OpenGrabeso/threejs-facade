@@ -8,21 +8,18 @@ organization := "com.github.opengrabeso"
 
 name := "threejs-facade"
 
-version := "0.0.114-0.0.1"
+version := "0.0.114-0.0.2"
 
 publishMavenStyle := true
 
-githubOwner in ThisBuild := "OpenGrabeso"
+githubOwner := "OpenGrabeso"
 
-githubRepository in ThisBuild := "packages"
+githubRepository := "packages"
 
-githubActor in ThisBuild := sys.env.getOrElse("GITHUB_USERNAME", "OpenGrabeso")
-
-githubTokenSource in ThisBuild := TokenSource.GitConfig("github.token") || TokenSource.Environment("GITHUB_USERTOKEN") || TokenSource.Environment("GITHUB_TOKEN")
-
+githubTokenSource := TokenSource.GitConfig("github.token") || TokenSource.Environment("GITHUB_USERTOKEN") || TokenSource.Environment("GITHUB_TOKEN")
 
 publishTo := {
-  Some("GitHub OpenGrabeso Apache Maven Packages" at "https://maven.pkg.github.com/OpenGrabeso/packages/")
+  Some("GitHub gamatron Apache Maven Packages" at "https://maven.pkg.github.com/OpenGrabeso/packages/")
 }
 
 crossScalaVersions := crossVersions

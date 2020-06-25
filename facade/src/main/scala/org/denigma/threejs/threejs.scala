@@ -596,7 +596,7 @@ class Object3D extends js.Object with EventDispatcher {
   def worldToLocal(vector: Vector3): Vector3 = js.native
   def lookAt(vector: Vector3): Unit = js.native
   def add(`object`: Object3D*): Unit = js.native
-  def remove(`object`: Object3D): Unit = js.native
+  def remove(`object`: Object3D*): Unit = js.native
   def raycast(raycaster: Raycaster, intersects: js.Any): Unit = js.native
   def traverse(callback: js.Function1[Object3D, Any]): Unit = js.native
   def getObjectById(id: String, recursive: Boolean): Object3D = js.native
@@ -797,6 +797,14 @@ class Cache extends js.Object {
 class ImageLoader(manager: LoadingManager = js.native) extends js.Object {
   var crossOrigin: String = js.native
   def load(url: String, onLoad: js.Function1[HTMLImageElement, Unit] = js.native, onProgress: js.Function1[js.Any, Unit] = js.native, onError: js.Function1[js.Any, Unit] = js.native): HTMLImageElement = js.native
+  def setCrossOrigin(crossOrigin: String): Unit = js.native
+}
+
+@js.native
+@JSGlobal("THREE.AudioLoader")
+class AudioLoader(manager: LoadingManager = js.native) extends js.Object {
+  var crossOrigin: String = js.native
+  def load(url: String, onLoad: js.Function1[AudioBuffer, Unit] = js.native, onProgress: js.Function1[js.Any, Unit] = js.native, onError: js.Function1[js.Any, Unit] = js.native): Unit = js.native
   def setCrossOrigin(crossOrigin: String): Unit = js.native
 }
 
@@ -3296,4 +3304,34 @@ class Stats extends js.Object {
   var dom: HTMLElement = js.native
 }
 
+
+@js.native
+@JSGlobal("THREE.AudioBuffer")
+class AudioBuffer extends Object3D {
+
+}
+
+
+@js.native
+@JSGlobal("THREE.AudioListener")
+class AudioListener extends Object3D {
+
+}
+
+@js.native
+@JSGlobal("THREE.Audio")
+class Audio(listener: AudioListener) extends Object3D {
+  def play(delay: Double = 0): Audio = js.native
+  def stop(): Audio = js.native
+  def setBuffer(audioBuffer: AudioBuffer): Audio = js.native
+  def setRefDistance(d: Double): Audio = js.native
+  var loop: Boolean = js.native
+  val isPlaying: Boolean = js.native
+}
+
+@js.native
+@JSGlobal("THREE.PositionalAudio")
+class PositionalAudio(listener: AudioListener) extends Audio(listener) {
+
+}
 

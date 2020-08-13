@@ -10,7 +10,7 @@ import scala.scalajs.js
 
 class Scheduler
 {
-  def current: Double = js.Date.now
+  def current: Double = js.Date.now()
   var animations = List.empty[Animation]
 
   def add(ani: Animation): Unit = {

@@ -358,6 +358,12 @@ class BufferAttribute(var array: js.Any, var itemSize: Double) extends js.Object
 }
 
 @js.native
+@JSGlobal("THREE.BufferAttribute")
+class InstancedBufferAttribute(array: js.Any, itemSize: Double, var meshPerAttribute: Int = 1) extends BufferAttribute(array, itemSize) {
+
+}
+
+@js.native
 @JSGlobal("THREE.Int8BufferAttribute")
 class Int8BufferAttribute(data: js.Any, itemSize: Double) extends BufferAttribute(data, itemSize)
 
@@ -440,6 +446,12 @@ class BufferGeometry extends AGeometry {
   def toNonIndexed(): BufferGeometry = js.native
   override def clone(): BufferGeometry = js.native
   def copy(geometry: BufferGeometry): BufferGeometry = js.native
+}
+
+@js.native
+@JSGlobal("THREE.InstancedBufferGeometry")
+class InstancedBufferGeometry extends BufferGeometry {
+  var maxInstancedCount: Int = js.native
 }
 
 @js.native
@@ -2089,6 +2101,16 @@ class Mesh(geometry: AGeometry = js.native, var material: Material = js.native) 
   override def raycast(raycaster: Raycaster, intersects: js.Any): Unit = js.native
   override def clone(): Mesh = js.native
 }
+
+@js.native
+@JSGlobal("THREE.InstancedMesh")
+class InstancedMesh(geometry: AGeometry = js.native, material: Material = js.native, var count: Int = js.native) extends Mesh(geometry, material) {
+  def getMatrixAt(index: Int, matrix: Matrix4): Unit = js.native
+  def setMatrixAt(index: Int, matrix: Matrix4): Unit = js.native
+  override def raycast(raycaster: Raycaster, intersects: js.Any): Unit = js.native
+  override def clone(): InstancedMesh = js.native
+}
+
 
 @js.native
 @JSGlobal("THREE.MorphAnimMesh")

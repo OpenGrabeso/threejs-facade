@@ -3095,6 +3095,29 @@ class TubeGeometry(var path: Path, var segments: Double = js.native, var radius:
   def FrenetFrames(path: Path, segments: Double, closed: Boolean): Unit = js.native
 }
 
+
+@js.native
+@JSGlobal("THREE.BoxBufferGeometry")
+class BoxBufferGeometry(width: Double, height: Double, depth: Double, var widthSegments: Double = js.native, var heightSegments: Double = js.native, var depthSegments: Double = js.native) extends BufferGeometry {
+  var parameters: js.Any = js.native
+}
+
+@js.native
+@JSGlobal("THREE.SphereBufferGeometry")
+class SphereBufferGeometry(
+  var radius: Double, var widthSegments: Double = js.native, var heightSegments: Double = js.native,
+  var phiStart: Double = js.native, var phiLength: Double = js.native, var thetaStart: Double = js.native, var thetaLength: Double = js.native
+) extends BufferGeometry {
+  var parameters: js.Any = js.native
+}
+
+@js.native
+@JSGlobal("THREE.PlaneBufferGeometry")
+class PlaneBufferGeometry(var width: Double, var height: Double, var widthSegments: Double = js.native, var heightSegments: Double = js.native) extends BufferGeometry {
+  var parameters: js.Any = js.native
+}
+
+
 @js.native
 @JSGlobal("THREE.ArrowHelper")
 class ArrowHelper(dir: Vector3, origin: Vector3 = js.native, length: Double = js.native, hex: Double = js.native, headLength: Double = js.native, headWidth: Double = js.native) extends Object3D {

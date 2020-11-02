@@ -3016,7 +3016,7 @@ class ParametricGeometry(func: js.Function2[Double, Double, Vector3], slices: Do
 
 @js.native
 @JSGlobal("THREE.PlaneGeometry")
-class PlaneGeometry(var width: Double, var height: Double, var widthSegments: Double = js.native, var heightSegments: Double = js.native) extends Geometry {
+class PlaneGeometry(var width: Double = js.native, var height: Double = js.native, var widthSegments: Double = js.native, var heightSegments: Double = js.native) extends Geometry {
   var parameters: js.Any = js.native
 }
 
@@ -3046,7 +3046,7 @@ class ShapeGeometry extends Geometry {
 @js.native
 @JSGlobal("THREE.SphereGeometry")
 class SphereGeometry(
-  var radius: Double, var widthSegments: Double = js.native, var heightSegments: Double = js.native,
+  var radius: Double = js.native, var widthSegments: Double = js.native, var heightSegments: Double = js.native,
   var phiStart: Double = js.native, var phiLength: Double = js.native, var thetaStart: Double = js.native, var thetaLength: Double = js.native
 ) extends Geometry {
   var parameters: js.Any = js.native
@@ -3098,14 +3098,14 @@ class TubeGeometry(var path: Path, var segments: Double = js.native, var radius:
 
 @js.native
 @JSGlobal("THREE.BoxBufferGeometry")
-class BoxBufferGeometry(width: Double, height: Double, depth: Double, var widthSegments: Double = js.native, var heightSegments: Double = js.native, var depthSegments: Double = js.native) extends BufferGeometry {
+class BoxBufferGeometry(width: Double = js.native, height: Double = js.native, depth: Double = js.native, var widthSegments: Double = js.native, var heightSegments: Double = js.native, var depthSegments: Double = js.native) extends BufferGeometry {
   var parameters: js.Any = js.native
 }
 
 @js.native
 @JSGlobal("THREE.SphereBufferGeometry")
 class SphereBufferGeometry(
-  var radius: Double, var widthSegments: Double = js.native, var heightSegments: Double = js.native,
+  var radius: Double = js.native, var widthSegments: Double = js.native, var heightSegments: Double = js.native,
   var phiStart: Double = js.native, var phiLength: Double = js.native, var thetaStart: Double = js.native, var thetaLength: Double = js.native
 ) extends BufferGeometry {
   var parameters: js.Any = js.native
@@ -3113,7 +3113,7 @@ class SphereBufferGeometry(
 
 @js.native
 @JSGlobal("THREE.PlaneBufferGeometry")
-class PlaneBufferGeometry(var width: Double, var height: Double, var widthSegments: Double = js.native, var heightSegments: Double = js.native) extends BufferGeometry {
+class PlaneBufferGeometry(var width: Double = js.native, var height: Double = js.native, var widthSegments: Double = js.native, var heightSegments: Double = js.native) extends BufferGeometry {
   var parameters: js.Any = js.native
 }
 

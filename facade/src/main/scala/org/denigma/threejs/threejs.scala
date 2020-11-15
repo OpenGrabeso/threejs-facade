@@ -2050,11 +2050,7 @@ class Spherical(var radius: Double = js.native, var phi: Double = js.native, var
 
 @js.native
 @JSGlobal("THREE.Bone")
-class Bone(var skin: SkinnedMesh) extends Object3D {
-  var accumulatedRotWeight: Double = js.native
-  var accumulatedPosWeight: Double = js.native
-  var accumulatedSclWeight: Double = js.native
-  override def updateMatrixWorld(forceUpdate: Boolean): Unit = js.native
+class Bone() extends Object3D {
 }
 
 @js.native
@@ -2147,7 +2143,7 @@ class PointCloud(geometry: Geometry, var material: PointCloudMaterial = js.nativ
 
 @js.native
 @JSGlobal("THREE.Skeleton")
-class Skeleton(var bones: js.Array[Bone], var boneInverses: js.Array[Matrix4] = js.native, var useVertexTexture: Boolean = js.native) extends js.Object {
+class Skeleton(var bones: js.Array[Bone], var boneInverses: js.Array[Matrix4] = js.native) extends js.Object {
   var identityMatrix: Matrix4 = js.native
   var boneTextureWidth: Double = js.native
   var boneTextureHeight: Double = js.native
@@ -2160,7 +2156,7 @@ class Skeleton(var bones: js.Array[Bone], var boneInverses: js.Array[Matrix4] = 
 
 @js.native
 @JSGlobal("THREE.SkinnedMesh")
-class SkinnedMesh(geometry: Geometry = js.native, material: MeshBasicMaterial = js.native, useVertexTexture: Boolean = js.native) extends Mesh(geometry, material) {
+class SkinnedMesh(geometry: Geometry = js.native, material: MeshBasicMaterial = js.native) extends Mesh(geometry, material) {
   var bindMode: String = js.native
   var bindMatrix: Matrix4 = js.native
   var bindMatrixInverse: Matrix4 = js.native
@@ -2168,6 +2164,7 @@ class SkinnedMesh(geometry: Geometry = js.native, material: MeshBasicMaterial = 
   def bind(skeleton: Skeleton, bindMatrix: Matrix4): Unit = js.native
   def pose(): Unit = js.native
   def normalizeSkinWeights(): Unit = js.native
+  override def updateMatrixWorld(force: Boolean): Unit = js.native
   override def clone(): SkinnedMesh = js.native
   var skeleton: Skeleton = js.native
 }

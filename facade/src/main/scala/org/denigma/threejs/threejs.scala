@@ -2157,14 +2157,13 @@ class PointCloud(geometry: Geometry, var material: PointCloudMaterial = js.nativ
 @js.native
 @JSGlobal("THREE.Skeleton")
 class Skeleton(var bones: js.Array[Bone], var boneInverses: js.Array[Matrix4] = js.native) extends js.Object {
-  var identityMatrix: Matrix4 = js.native
-  var boneTextureWidth: Double = js.native
-  var boneTextureHeight: Double = js.native
   var boneMatrices: Float32Array = js.native
   var boneTexture: DataTexture = js.native
-  def calculateInverses(bone: Bone): Unit = js.native
+  def calculateInverses(): Unit = js.native
   def pose(): Unit = js.native
   def update(): Unit = js.native
+  def getBoneByName(name: String): Bone = js.native
+  def dispose(): Unit = js.native
 }
 
 @js.native

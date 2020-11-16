@@ -957,6 +957,7 @@ class LineBasicMaterial(parameters: LineBasicMaterialParameters = js.native) ext
   var linejoin: String = js.native
   var vertexColors: Boolean = js.native
   var fog: Boolean = js.native
+  def copy(material: LineBasicMaterial): LineBasicMaterial = js.native
   override def clone(): LineBasicMaterial = js.native
 }
 
@@ -981,6 +982,7 @@ class LineDashedMaterial(parameters: LineDashedMaterialParameters = js.native) e
   var gapSize: Double = js.native
   var vertexColors: Boolean = js.native
   var fog: Boolean = js.native
+  def copy(material: LineDashedMaterial): LineDashedMaterial = js.native
   override def clone(): LineDashedMaterial = js.native
 }
 
@@ -1022,6 +1024,7 @@ class MeshBasicMaterial(parameters: MeshBasicMaterialParameters = js.native) ext
   var vertexColors: Boolean = js.native
   var skinning: Boolean = js.native
   var morphTargets: Boolean = js.native
+  def copy(material: MeshBasicMaterial): MeshBasicMaterial = js.native
   override def clone(): MeshBasicMaterial = js.native
 }
 
@@ -1036,12 +1039,14 @@ trait MeshDepthMaterialParameters extends MaterialParameters {
 class MeshDepthMaterial(parameters: MeshDepthMaterialParameters = js.native) extends Material {
   var wireframe: Boolean = js.native
   var wireframeLinewidth: Double = js.native
+  def copy(material: MeshDepthMaterial): MeshDepthMaterial = js.native
   override def clone(): MeshDepthMaterial = js.native
 }
 
 @js.native
 @JSGlobal("THREE.MeshFaceMaterial")
 class MeshFaceMaterial(var materials: js.Array[Material] = js.native) extends Material {
+  def copy(material: MeshFaceMaterial): MeshFaceMaterial = js.native
   override def clone(): MeshFaceMaterial = js.native
 }
 
@@ -1093,6 +1098,7 @@ class MeshLambertMaterial(parameters: MeshLambertMaterialParameters = js.native)
   var skinning: Boolean = js.native
   var morphTargets: Boolean = js.native
   var morphNormals: Boolean = js.native
+  def copy(material: MeshLambertMaterial): MeshLambertMaterial = js.native
   override def clone(): MeshLambertMaterial = js.native
 }
 
@@ -1111,6 +1117,7 @@ class MeshNormalMaterial(parameters: MeshNormalMaterialParameters = js.native) e
   var wireframe: Boolean = js.native
   var wireframeLinewidth: Double = js.native
   var morphTargets: Boolean = js.native
+  def copy(material: MeshNormalMaterial): MeshNormalMaterial = js.native
   override def clone(): MeshNormalMaterial = js.native
 }
 
@@ -1176,6 +1183,7 @@ class MeshPhongMaterial(parameters: MeshPhongMaterialParameters = js.native) ext
   var skinning: Boolean = js.native
   var morphTargets: Boolean = js.native
   var morphNormals: Boolean = js.native
+  def copy(material: MeshPhongMaterial): MeshPhongMaterial = js.native
   override def clone(): MeshPhongMaterial = js.native
 }
 
@@ -1242,7 +1250,8 @@ class MeshStandardMaterial(parameters: MeshStandardMaterialParameters = js.nativ
   var skinning: Boolean = js.native
   var morphTargets: Boolean = js.native
   var morphNormals: Boolean = js.native
-  override def clone(): MeshPhongMaterial = js.native
+  def copy(material: MeshStandardMaterial): MeshStandardMaterial = js.native
+  override def clone(): MeshStandardMaterial = js.native
 }
 
 @js.native
@@ -1263,6 +1272,7 @@ class PointCloudMaterial(parameters: PointCloudMaterialParameters = js.native) e
   var sizeAttenuation: Boolean = js.native
   var vertexColors: Boolean = js.native
   var fog: Boolean = js.native
+  def copy(material: PointCloudMaterial): PointCloudMaterial = js.native
   override def clone(): PointCloudMaterial = js.native
 }
 
@@ -1315,6 +1325,7 @@ class ShaderMaterial(parameters: ShaderMaterialParameters = js.native) extends M
   var skinning: Boolean = js.native
   var morphTargets: Boolean = js.native
   var morphNormals: Boolean = js.native
+  def copy(material: ShaderMaterial): ShaderMaterial = js.native
   override def clone(): ShaderMaterial = js.native
 }
 
@@ -1328,6 +1339,7 @@ trait SpriteCanvasMaterialParameters extends MaterialParameters {
 class SpriteCanvasMaterial(parameters: SpriteCanvasMaterialParameters = js.native) extends Material {
   var color: Color = js.native
   def program(context: js.Any, color: Color): Unit = js.native
+  def copy(material: SpriteCanvasMaterial): SpriteCanvasMaterial = js.native
   override def clone(): SpriteCanvasMaterial = js.native
 }
 
@@ -1345,6 +1357,7 @@ class SpriteMaterial(parameters: SpriteMaterialParameters = js.native) extends M
   var color: Color = js.native
   var rotation: Double = js.native
   var fog: Boolean = js.native
+  def copy(material: SpriteMaterial): SpriteMaterial = js.native
   override def clone(): SpriteMaterial = js.native
 }
 
@@ -2156,7 +2169,7 @@ class Skeleton(var bones: js.Array[Bone], var boneInverses: js.Array[Matrix4] = 
 
 @js.native
 @JSGlobal("THREE.SkinnedMesh")
-class SkinnedMesh(geometry: Geometry = js.native, material: MeshBasicMaterial = js.native) extends Mesh(geometry, material) {
+class SkinnedMesh(geometry: BufferGeometry = js.native, material: Material = js.native) extends Mesh(geometry, material) {
   var bindMode: String = js.native
   var bindMatrix: Matrix4 = js.native
   var bindMatrixInverse: Matrix4 = js.native

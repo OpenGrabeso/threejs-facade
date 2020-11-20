@@ -1693,6 +1693,7 @@ trait Matrix extends js.Object {
 class Matrix3 extends Matrix {
 
   def set(n11: Double, n12: Double, n13: Double, n21: Double, n22: Double, n23: Double, n31: Double, n32: Double, n33: Double): Matrix3 = js.native
+  def setFromMatrix4(m: Matrix4): Matrix3 = js.native
   override def identity(): Matrix3 = js.native
   def copy(m: Matrix3): Matrix3 = js.native
   def applyToVector3Array(array: js.Array[Double], offset: Double = js.native, length: Double = js.native): js.Array[Double] = js.native

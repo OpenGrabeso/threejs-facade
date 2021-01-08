@@ -2115,8 +2115,14 @@ class Mesh(geometry: AGeometry = js.native, var material: Material = js.native) 
 @js.native
 @JSGlobal("THREE.InstancedMesh")
 class InstancedMesh(geometry: AGeometry = js.native, material: Material = js.native, var count: Int = js.native) extends Mesh(geometry, material) {
+  var instanceColor: BufferAttribute = js.native
+  var instanceMatrix: BufferAttribute = js.native
+
   def getMatrixAt(index: Int, matrix: Matrix4): Unit = js.native
   def setMatrixAt(index: Int, matrix: Matrix4): Unit = js.native
+  def getColorAt(index: Int, color: Color): Unit = js.native
+  def setColorAt(index: Int, color: Color): Unit = js.native
+  def dispose(): Unit = js.native
   override def raycast(raycaster: Raycaster, intersects: js.Any): Unit = js.native
   override def clone(): InstancedMesh = js.native
 }

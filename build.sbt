@@ -8,7 +8,7 @@ organization := "com.github.opengrabeso"
 
 name := "threejs-facade"
 
-version := "0.0.124-0.0.1"
+version := "0.0.124-0.0.3"
 
 scalacOptions ++= Seq(
   "-deprecation",

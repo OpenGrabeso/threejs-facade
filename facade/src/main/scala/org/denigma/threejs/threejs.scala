@@ -556,7 +556,7 @@ class Geometry extends AGeometry {
   def computeLineDistances(): Unit = js.native
   def computeBoundingBox(): Unit = js.native
   def computeBoundingSphere(): Unit = js.native
-  def merge(geometry: Geometry, matrix: Matrix, materialIndexOffset: Double): Unit = js.native
+  def merge(geometry: Geometry, matrix: Matrix4, materialIndexOffset: Double): Unit = js.native
   def mergeVertices(): Double = js.native
   def makeGroups(usesFaceMaterial: Boolean, maxVerticesInGroup: Double): Unit = js.native
   def copy(source: Geometry): Geometry = js.native
@@ -1677,45 +1677,36 @@ trait Math extends js.Object {
 }
 
 @js.native
-trait Matrix extends js.Object {
+trait Matrix[T <: Matrix[T]] extends js.Object {
+  self: Matrix[T] =>
   var elements: scala.scalajs.js.typedarray.Float32Array = js.native
-  def identity(): Matrix = js.native
-  def copy(m: Matrix): Matrix = js.native
-  def multiplyScalar(s: Double): Matrix = js.native
+  def identity(): T = js.native
+  def copy(m: T): T = js.native
+  def multiplyScalar(s: Double): T = js.native
   def determinant(): Double = js.native
-  def getInverse(matrix: Matrix, throwOnInvertible: Boolean = js.native): Matrix = js.native
-  def transpose(): Matrix = js.native
-  override def clone(): Matrix = js.native
+  def invert(): T = js.native
+  def transpose(): T = js.native
+  override def clone(): T = js.native
 }
 
 @js.native
 @JSGlobal("THREE.Matrix3")
-class Matrix3 extends Matrix {
+class Matrix3 extends Matrix[Matrix3] {
 
   def set(n11: Double, n12: Double, n13: Double, n21: Double, n22: Double, n23: Double, n31: Double, n32: Double, n33: Double): Matrix3 = js.native
   def setFromMatrix4(m: Matrix4): Matrix3 = js.native
-  override def identity(): Matrix3 = js.native
-  def copy(m: Matrix3): Matrix3 = js.native
   def applyToVector3Array(array: js.Array[Double], offset: Double = js.native, length: Double = js.native): js.Array[Double] = js.native
-  override def multiplyScalar(s: Double): Matrix3 = js.native
-  override def determinant(): Double = js.native
-  def getInverse(matrix: Matrix3): Matrix3 = js.native
-  def getInverse(matrix: Matrix3, throwOnInvertible: Boolean): Matrix3 = js.native
-  override def transpose(): Matrix3 = js.native
   def flattenToArrayOffset(array: js.Array[Double], offset: Double): js.Array[Double] = js.native
   def getNormalMatrix(m: Matrix4): Matrix3 = js.native
   def transposeIntoArray(r: js.Array[Double]): js.Array[Double] = js.native
   def fromArray(array: js.Array[Double]): Matrix3 = js.native
   def toArray(): js.Array[Double] = js.native
-  override def clone(): Matrix3 = js.native
 }
 
 @js.native
 @JSGlobal("THREE.Matrix4")
-class Matrix4 extends Matrix {
+class Matrix4 extends Matrix[Matrix4] {
   def set(n11: Double, n12: Double, n13: Double, n14: Double, n21: Double, n22: Double, n23: Double, n24: Double, n31: Double, n32: Double, n33: Double, n34: Double, n41: Double, n42: Double, n43: Double, n44: Double): Matrix4 = js.native
-  override def identity(): Matrix4 = js.native
-  def copy(m: Matrix4): Matrix4 = js.native
   def copyPosition(m: Matrix4): Matrix4 = js.native
   def extractRotation(m: Matrix4): Matrix4 = js.native
   def makeRotationFromEuler(euler: Euler): Matrix4 = js.native
@@ -1724,14 +1715,9 @@ class Matrix4 extends Matrix {
   def multiply(m: Matrix4): Matrix4 = js.native
   def multiplyMatrices(a: Matrix4, b: Matrix4): Matrix4 = js.native
   def multiplyToArray(a: Matrix4, b: Matrix4, r: js.Array[Double]): Matrix4 = js.native
-  override def multiplyScalar(s: Double): Matrix4 = js.native
   def applyToVector3Array(array: js.Array[Double], offset: Double = js.native, length: Double = js.native): js.Array[Double] = js.native
-  override def determinant(): Double = js.native
-  override def transpose(): Matrix4 = js.native
   def flattenToArrayOffset(array: js.Array[Double], offset: Double): js.Array[Double] = js.native
   def setPosition(v: Vector3): Vector3 = js.native
-  def getInverse(m: Matrix4): Matrix4 = js.native
-  def getInverse(m: Matrix4, throwOnInvertible: Boolean): Matrix4 = js.native
   def scale(v: Vector3): Matrix4 = js.native
   def getMaxScaleOnAxis(): Double = js.native
   def makeTranslation(x: Double, y: Double, z: Double): Matrix4 = js.native
@@ -1747,7 +1733,6 @@ class Matrix4 extends Matrix {
   def makeOrthographic(left: Double, right: Double, top: Double, bottom: Double, near: Double, far: Double): Matrix4 = js.native
   def fromArray(array: js.Array[Double]): Matrix4 = js.native
   def toArray(): js.Array[Double] = js.native
-  override def clone(): Matrix4 = js.native
 }
 
 @js.native
@@ -1781,7 +1766,7 @@ class Quaternion(var x: Double = js.native, var y: Double = js.native, var z: Do
   def setFromAxisAngle(axis: Vector3, angle: Double): Quaternion = js.native
   def setFromRotationMatrix(m: Matrix4): Quaternion = js.native
   def setFromUnitVectors(vFrom: Vector3, vTo: Vector3): Quaternion = js.native
-  def inverse(): Quaternion = js.native
+  def invert(): Quaternion = js.native
   def conjugate(): Quaternion = js.native
   def dot(v: Quaternion): Double = js.native
   def lengthSq(): Double = js.native

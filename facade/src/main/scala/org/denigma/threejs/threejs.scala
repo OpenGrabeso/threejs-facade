@@ -2282,7 +2282,19 @@ class WebGLRenderer(parameters: WebGLRendererParameters = js.native) extends Ren
   var autoScaleCubemaps: Boolean = js.native
   var renderPluginsPre: js.Array[RendererPlugin] = js.native
   var renderPluginsPost: js.Array[RendererPlugin] = js.native
-  var info: js.Any = js.native
+  @js.native object info extends js.Any {
+    @js.native object render extends js.Any {
+      var frame: Int = js.native
+      var calls: Int = js.native
+      var triangles: Int = js.native
+      var points: Int = js.native
+      var lines: Int = js.native
+    }
+    @js.native object memory extends js.Any {
+      var geometries: Int = js.native
+      var textures: Int = js.native
+    }
+  }
   var extensions: WebGLExtensions = js.native
   def getContext(): WebGLRenderingContext = js.native
   def supportsVertexTextures(): Boolean = js.native

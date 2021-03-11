@@ -8,7 +8,7 @@ organization := "com.github.opengrabeso"
 
 name := "threejs-facade"
 
-version := "0.0.126-0.0.1"
+version := "0.0.126-0.0.2"
 
 scalacOptions ++= Seq(
   "-deprecation",
@@ -30,13 +30,9 @@ publishTo := {
 
 crossScalaVersions := crossVersions
 
-scalaSource in Compile := baseDirectory.value / "facade" / "src"
-
-
 libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "1.0.0"
 
-jsDependencies += ProvidedJS / "three.js" minified "three.min.js" commonJSName "THREE"
-
+jsDependencies += ProvidedJS / "facade_bundled/three.js" minified "facade_bundled/three.min.js" commonJSName "THREE"
 
 enablePlugins(ScalaJSPlugin, JSDependenciesPlugin)
 

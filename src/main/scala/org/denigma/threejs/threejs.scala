@@ -2913,7 +2913,7 @@ class SplineCurve3(var points: js.Array[Vector3] = js.native) extends Curve {
 
 @js.native
 @JSGlobal("THREE.BoxGeometry")
-class BoxGeometry(width: Double, height: Double, depth: Double, var widthSegments: Double = js.native, var heightSegments: Double = js.native, var depthSegments: Double = js.native) extends BufferGeometry {
+class BoxGeometry(width: Double = js.native, height: Double = js.native, depth: Double = js.native, var widthSegments: Double = js.native, var heightSegments: Double = js.native, var depthSegments: Double = js.native) extends BufferGeometry {
   var parameters: js.Any = js.native
 }
 
